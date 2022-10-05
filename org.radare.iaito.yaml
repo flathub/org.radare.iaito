@@ -1,7 +1,7 @@
 app-id: org.radare.iaito
 
 runtime: org.kde.Platform
-runtime-version: '5.15-22.08'
+runtime-version: 5.15-22.08
 sdk: org.kde.Sdk
 
 command: iaito
@@ -70,6 +70,7 @@ modules:
           tag-query: .tag_name
           version-query: $tag
           timestamp-query: .published_at
+        commit: 6ce2dc2fee1ec1262bd0622c879ded8cb74e4ead
       - type: shell # preconfigure
         commands:
           - make -C ghidra-native patch
@@ -78,7 +79,7 @@ modules:
     buildsystem: meson
     subdir: p
     config-opts:
-      - '-Djsc_folder=..'
+      - -Djsc_folder=..
     sources:
       - type: git
         url: https://github.com/wargio/r2dec-js.git
@@ -108,3 +109,4 @@ modules:
           version-query: $tag
           timestamp-query: .published_at
           is-main-source: true
+        commit: 2d78b571228c2a770bfccdbaa6c62d59ed4240c8
