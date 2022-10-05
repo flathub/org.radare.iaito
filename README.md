@@ -2,9 +2,7 @@
 
 Official Radare Iaito Flatpak package.
 
-<!--
 <a href='https://flathub.org/apps/details/org.radare.iaito'><img width='120' alt='Download on Flathub' src='https://flathub.org/assets/badges/flathub-badge-en.png'/></a>
--->
 
 ## Permissions
 
