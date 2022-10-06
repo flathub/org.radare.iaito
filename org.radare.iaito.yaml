@@ -92,6 +92,22 @@ modules:
         #   version-query: $tag
         #   timestamp-query: .published_at
 
+  - name: r2pipe-python
+    buildsystem: simple
+    build-commands:
+      - pip3 install --prefix=/app --no-deps python/
+    sources:
+      - type: git
+        url: https://github.com/radareorg/radare2-r2pipe.git
+        tag: 5.7.0
+        commit: 3e59d274e4ccfc9ad125513e30e6b7b7255383ca
+        x-checker-data:
+          type: json
+          url: https://api.github.com/repos/radareorg/radare2-r2pipe/releases/latest
+          tag-query: .tag_name
+          version-query: $tag
+          timestamp-query: .published_at
+
   - name: iaito
     buildsystem: qmake
     subdir: src
