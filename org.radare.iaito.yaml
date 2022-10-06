@@ -25,9 +25,9 @@ modules:
     sources:
       - type: git
         url: https://github.com/radareorg/radare2.git
+        # tag: 5.7.9
         commit: db1a5d132b75f26d9161c6107a3436d0f134533a
         disable-fsckobjects: true
-        # tag: 5.7.9
         # x-checker-data:
         #   type: json
         #   url: https://api.github.com/repos/radareorg/radare2/releases/latest
@@ -36,8 +36,8 @@ modules:
         #   timestamp-query: .published_at
       - type: git
         url: https://github.com/capstone-engine/capstone.git
-        commit: 0d0e684358afd0889b98deaf3941caa9c6855cae
         # tag: 5.0.0
+        commit: 0d0e684358afd0889b98deaf3941caa9c6855cae
         dest: shlr/capstone
         # x-checker-data:
         #   type: json
@@ -52,8 +52,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/radareorg/r2ghidra.git
-        commit: f374572587cadc32405d71cc3fa667232cae88e6
         # tag: 5.7.7
+        commit: f374572587cadc32405d71cc3fa667232cae88e6
         # x-checker-data:
         #   type: json
         #   url: https://api.github.com/repos/radareorg/r2ghidra/releases/latest
@@ -63,6 +63,7 @@ modules:
       - type: git
         url: https://github.com/radareorg/ghidra-native.git
         tag: 0.2.5
+        commit: 6ce2dc2fee1ec1262bd0622c879ded8cb74e4ead
         dest: ghidra-native
         x-checker-data:
           type: json
@@ -70,7 +71,6 @@ modules:
           tag-query: .tag_name
           version-query: $tag
           timestamp-query: .published_at
-        commit: 6ce2dc2fee1ec1262bd0622c879ded8cb74e4ead
       - type: shell # preconfigure
         commands:
           - make -C ghidra-native patch
@@ -83,8 +83,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/wargio/r2dec-js.git
-        commit: 3aa3726a17ceb50d1561d579b560da84a2fc6d50
         # tag: 5.7.7
+        commit: 3aa3726a17ceb50d1561d579b560da84a2fc6d50
         # x-checker-data:
         #   type: json
         #   url: https://api.github.com/repos/wargio/r2dec-js/releases/latest
@@ -102,6 +102,7 @@ modules:
       - type: git
         url: https://github.com/radareorg/iaito.git
         tag: 5.7.6
+        commit: 2d78b571228c2a770bfccdbaa6c62d59ed4240c8
         x-checker-data:
           type: json
           url: https://api.github.com/repos/radareorg/iaito/releases/latest
@@ -109,4 +110,3 @@ modules:
           version-query: $tag
           timestamp-query: .published_at
           is-main-source: true
-        commit: 2d78b571228c2a770bfccdbaa6c62d59ed4240c8
