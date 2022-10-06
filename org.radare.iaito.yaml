@@ -127,15 +127,19 @@ modules:
       - make -C translations build
       - install -Dm644 -t /app/share/iaito/translations translations/build/*.qm
     sources:
-      # use type git so that translations submodule gets downloaded
-      - type: git
-        url: https://github.com/radareorg/iaito.git
-        tag: 5.7.6
-        commit: 2d78b571228c2a770bfccdbaa6c62d59ed4240c8
+      - type: archive
+        url: https://api.github.com/repos/radareorg/iaito/tarball/5.7.6
+        sha256: 6fe1bc9d1688a5320bb24d17ffd2310ef3596ff300d3defb93dc65a752069c31
+        dest-filename: iaito-5.7.6.tar.gz
         x-checker-data:
           type: json
           url: https://api.github.com/repos/radareorg/iaito/releases/latest
-          tag-query: .tag_name
-          version-query: $tag
+          version-query: .tag_name
+          url-query: .tarball_url
+          dest-filename-query: iaito-${version}.tar.gz
           timestamp-query: .published_at
-          is-main-source: true
+      - type: git
+        url: https://github.com/radareorg/iaito-translations.git
+        branch: master
+        commit: 793ae9326330986ab9adfcc380be1561d09365a1
+        dest: src/translations
