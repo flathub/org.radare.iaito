@@ -24,7 +24,7 @@ modules:
     buildsystem: meson
     sources:
       - type: archive
-        url: https://github.com/radareorg/radare2/archive/db1a5d132b75f26d9161c6107a3436d0f134533a.tar.gz
+        url: https://api.github.com/repos/radareorg/radare2/tarball/db1a5d132b75f26d9161c6107a3436d0f134533a
         sha256: a4c2584538d6dd0d2217f06485b13e3ad46e3632601d0641282e350d35b70c40
         dest-filename: radare2-5.7.9-alpha-db1a5d1.tar.gz
         # x-checker-data:
@@ -35,7 +35,7 @@ modules:
         #   dest-filename-query: radare2-${version}.tar.gz
         #   timestamp-query: .published_at
       - type: archive
-        url: https://github.com/capstone-engine/capstone/archive/0d0e684358afd0889b98deaf3941caa9c6855cae.tar.gz
+        url: https://api.github.com/repos/capstone-engine/capstone/tarball/0d0e684358afd0889b98deaf3941caa9c6855cae
         sha256: 7ae917bc70493dd6e210ec13488ec2509c53130183a264bcea8f930102d33b75
         dest-filename: capstone-5.0.0-alpha-0d0e684.tar.gz
         dest: shlr/capstone
@@ -52,7 +52,7 @@ modules:
     buildsystem: autotools
     sources:
       - type: archive
-        url: https://github.com/radareorg/r2ghidra/archive/f374572587cadc32405d71cc3fa667232cae88e6.tar.gz
+        url: https://api.github.com/repos/radareorg/r2ghidra/tarball/f374572587cadc32405d71cc3fa667232cae88e6
         sha256: c11c8b62d6ac358c88257ebaa766e1fa75f4c626d2705b57247b398b35dc4fff
         dest-filename: r2ghidra-5.7.7-alpha-f374572.tar.gz
         # x-checker-data:
@@ -97,7 +97,7 @@ modules:
       - -Djsc_folder=..
     sources:
       - type: archive
-        url: https://github.com/wargio/r2dec-js/archive/3aa3726a17ceb50d1561d579b560da84a2fc6d50.tar.gz
+        url: https://api.github.com/repos/wargio/r2dec-js/tarball/3aa3726a17ceb50d1561d579b560da84a2fc6d50
         sha256: 7422b16306dd7bf23fcba5e5424e9db3a9459c16010218d8677c649bfe35d77b
         dest-filename: r2dec-5.7.7-alpha-3aa3726.tar.gz
         # x-checker-data:
