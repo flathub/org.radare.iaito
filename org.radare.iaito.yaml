@@ -23,53 +23,68 @@ modules:
   - name: radare2
     buildsystem: meson
     sources:
-      - type: git
-        url: https://github.com/radareorg/radare2.git
-        # tag: 5.7.9
-        commit: db1a5d132b75f26d9161c6107a3436d0f134533a
-        disable-fsckobjects: true
+      - type: archive
+        url: https://github.com/radareorg/radare2/archive/db1a5d132b75f26d9161c6107a3436d0f134533a.tar.gz
+        sha256: a4c2584538d6dd0d2217f06485b13e3ad46e3632601d0641282e350d35b70c40
+        dest-filename: radare2-5.7.9-alpha-db1a5d1.tar.gz
         # x-checker-data:
         #   type: json
         #   url: https://api.github.com/repos/radareorg/radare2/releases/latest
-        #   tag-query: .tag_name
-        #   version-query: $tag
+        #   version-query: .tag_name
+        #   url-query: .tarball_url
+        #   dest-filename-query: radare2-${version}.tar.gz
         #   timestamp-query: .published_at
-      - type: git
-        url: https://github.com/capstone-engine/capstone.git
-        # tag: 5.0.0
-        commit: 0d0e684358afd0889b98deaf3941caa9c6855cae
+      - type: archive
+        url: https://github.com/capstone-engine/capstone/archive/0d0e684358afd0889b98deaf3941caa9c6855cae.tar.gz
+        sha256: 7ae917bc70493dd6e210ec13488ec2509c53130183a264bcea8f930102d33b75
+        dest-filename: capstone-5.0.0-alpha-0d0e684.tar.gz
         dest: shlr/capstone
         # x-checker-data:
         #   type: json
         #   url: https://api.github.com/repos/capstone-engine/capstone/releases/latest
-        #   tag-query: .tag_name
-        #   version-query: $tag
+        #   version-query: .tag_name
+        #   url-query: .tarball_url
+        #   dest-filename-query: capstone-${version}.tar.gz
         #   timestamp-query: .published_at
 
   - name: r2ghidra
     # Using ACR since meson is currently not working
     buildsystem: autotools
     sources:
-      - type: git
-        url: https://github.com/radareorg/r2ghidra.git
-        # tag: 5.7.7
-        commit: f374572587cadc32405d71cc3fa667232cae88e6
+      - type: archive
+        url: https://github.com/radareorg/r2ghidra/archive/f374572587cadc32405d71cc3fa667232cae88e6.tar.gz
+        sha256: c11c8b62d6ac358c88257ebaa766e1fa75f4c626d2705b57247b398b35dc4fff
+        dest-filename: r2ghidra-5.7.7-alpha-f374572.tar.gz
         # x-checker-data:
         #   type: json
         #   url: https://api.github.com/repos/radareorg/r2ghidra/releases/latest
-        #   tag-query: .tag_name
-        #   version-query: $tag
+        #   version-query: .tag_name
+        #   url-query: .tarball_url
+        #   dest-filename-query: r2ghidra-${version}.tar.gz
         #   timestamp-query: .published_at
-      - type: git
-        url: https://github.com/radareorg/ghidra-native.git
-        tag: 0.2.5
-        commit: 6ce2dc2fee1ec1262bd0622c879ded8cb74e4ead
+      - type: archive
+        url: https://api.github.com/repos/zeux/pugixml/tarball/v1.12.1
+        sha256: 846da398f0ad0db0ed0eae5f2ee7bd258e7582b23e0e8e6fba0ee30da9071685
+        dest-filename: pugixml-1.12.1.tar.gz
+        dest: third-party/pugixml
+        x-checker-data:
+          type: json
+          url: https://api.github.com/repos/zeux/pugixml/releases/latest
+          version-query: .tag_name | sub("^v"; "")
+          url-query: .tarball_url
+          dest-filename-query: pugixml-${version}.tar.gz
+          timestamp-query: .published_at
+      - type: archive
+        url: https://api.github.com/repos/radareorg/ghidra-native/tarball/0.2.5
+        sha256: 073997f36e73dd43a498e558d7d9d24812bef214619288c6758f81ebb0ce825d
+        dest-filename: ghidra-native-0.2.5.tar.gz
         dest: ghidra-native
         x-checker-data:
           type: json
           url: https://api.github.com/repos/radareorg/ghidra-native/releases/latest
-          tag-query: .tag_name
-          version-query: $tag
+          version-query: .tag_name
+          url-query: .tarball_url
+          dest-filename-query: ghidra-native-${version}.tar.gz
           timestamp-query: .published_at
       - type: shell # preconfigure
         commands:
@@ -81,15 +96,16 @@ modules:
     config-opts:
       - -Djsc_folder=..
     sources:
-      - type: git
-        url: https://github.com/wargio/r2dec-js.git
-        # tag: 5.7.7
-        commit: 3aa3726a17ceb50d1561d579b560da84a2fc6d50
+      - type: archive
+        url: https://github.com/wargio/r2dec-js/archive/3aa3726a17ceb50d1561d579b560da84a2fc6d50.tar.gz
+        sha256: 7422b16306dd7bf23fcba5e5424e9db3a9459c16010218d8677c649bfe35d77b
+        dest-filename: r2dec-5.7.7-alpha-3aa3726.tar.gz
         # x-checker-data:
         #   type: json
         #   url: https://api.github.com/repos/wargio/r2dec-js/releases/latest
-        #   tag-query: .tag_name
-        #   version-query: $tag
+        #   version-query: .tag_name
+        #   url-query: .tarball_url
+        #   dest-filename-query: r2dec-${version}.tar.gz
         #   timestamp-query: .published_at
 
   - name: r2pipe-python
@@ -111,6 +127,7 @@ modules:
       - make -C translations build
       - install -Dm644 -t /app/share/iaito/translations translations/build/*.qm
     sources:
+      # use type git so that translations submodule gets downloaded
       - type: git
         url: https://github.com/radareorg/iaito.git
         tag: 5.7.6
