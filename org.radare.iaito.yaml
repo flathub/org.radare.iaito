@@ -123,9 +123,6 @@ modules:
   - name: iaito
     buildsystem: qmake
     subdir: src
-    post-install:
-      - make -C translations build
-      - install -Dm644 -t /app/share/iaito/translations translations/build/*.qm
     sources:
       - type: archive
         url: https://api.github.com/repos/radareorg/iaito/tarball/5.7.6
@@ -138,8 +135,20 @@ modules:
           url-query: .tarball_url
           dest-filename-query: iaito-${version}.tar.gz
           timestamp-query: .published_at
-      - type: git
-        url: https://github.com/radareorg/iaito-translations.git
-        branch: master
-        commit: 793ae9326330986ab9adfcc380be1561d09365a1
-        dest: src/translations
+
+  - name: iaito-translations
+    buildsystem: simple
+    build-commands:
+      - make install PREFIX=/app
+    sources:
+      - type: archive
+        url: https://api.github.com/repos/radareorg/iaito-translations/tarball/df53d7068484b7a9527375baa0040da980dd6a4d
+        sha256: 05cc01b5c8f1d909e4ed07bde53f8ff26932aebf1ba48362e481abce00fb1a8c
+        dest-filename: iaito-translations-df53d70.tar.gz
+        x-checker-data:
+          type: json
+          url: https://api.github.com/repos/radareorg/iaito-translations/branches/master
+          version-query: .commit.sha
+          url-query: .commit.url | sub("\/commits\/"; "/tarball/")
+          dest-filename-query: iaito-translations-(.commit.sha[0:7]).tar.gz
+          timestamp-query: .commit.commit.committer.date
