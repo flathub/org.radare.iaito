@@ -95,18 +95,14 @@ modules:
   - name: r2pipe-python
     buildsystem: simple
     build-commands:
-      - pip3 install --prefix=/app --no-deps python/
+      - pip3 install --prefix=/app --no-deps .
     sources:
-      - type: git
-        url: https://github.com/radareorg/radare2-r2pipe.git
-        tag: 5.7.0
-        commit: 3e59d274e4ccfc9ad125513e30e6b7b7255383ca
+      - type: archive
+        url: https://files.pythonhosted.org/packages/8e/23/7aaf7f06c7353e8c17bb8cb96d6d0f437075b9491a774f42c490e8ecb265/r2pipe-1.7.3.tar.gz
+        sha256: ce1295d3ee3aef1169ce6483b302163c41a992cd17fc5f9e70158f5a9bda9229
         x-checker-data:
-          type: json
-          url: https://api.github.com/repos/radareorg/radare2-r2pipe/releases/latest
-          tag-query: .tag_name
-          version-query: $tag
-          timestamp-query: .published_at
+          type: pypi
+          name: r2pipe
 
   - name: iaito
     buildsystem: qmake
