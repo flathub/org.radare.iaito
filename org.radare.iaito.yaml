@@ -18,6 +18,13 @@ cleanup:
   - /share/zsh
   - /share/radare2/*/www
 
+add-extensions:
+  org.radare.iaito.translations:
+    directory: share/iaito/translations
+    bundle: true
+    autodelete: true
+    locale-subset: false
+
 modules:
   - name: radare2
     buildsystem: meson
