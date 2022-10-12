@@ -18,6 +18,17 @@ cleanup:
   - /share/zsh
   - /share/radare2/*/www
 
+# Separate translations manually since currently flatpak
+#  don't split share/app/translations folder automatically
+separate-locales: false
+add-extensions:
+  org.radare.iaito.translations:
+    directory: share/iaito/translations
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+    locale-subset: false
+
 modules:
   - name: radare2
     buildsystem: meson
@@ -106,14 +117,12 @@ modules:
   - name: iaito
     buildsystem: qmake
     subdir: src
-    post-install:
-      - make -C translations build
-      - install -Dm644 -t /app/share/iaito/translations translations/build/*.qm
     sources:
       - type: git
         url: https://github.com/radareorg/iaito.git
         tag: 5.7.6
         commit: 2d78b571228c2a770bfccdbaa6c62d59ed4240c8
+        disable-submodules: true
         x-checker-data:
           type: json
           url: https://api.github.com/repos/radareorg/iaito/releases/latest
@@ -121,3 +130,13 @@ modules:
           version-query: $tag
           timestamp-query: .published_at
           is-main-source: true
+
+  - name: iaito-translations
+    buildsystem: simple
+    build-commands:
+      - make install PREFIX=/app
+    sources:
+      - type: git
+        url: https://github.com/radareorg/iaito-translations.git
+        branch: master
+        commit: dd50f402679e9bfc7b0071b770542e7654d37f4c
