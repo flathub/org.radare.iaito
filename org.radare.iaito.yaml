@@ -18,11 +18,15 @@ cleanup:
   - /share/zsh
   - /share/radare2/*/www
 
+# Separate translations manually since currently flatpak
+#  don't split share/app/translations folder automatically
+separate-locales: false
 add-extensions:
   org.radare.iaito.translations:
     directory: share/iaito/translations
     bundle: true
     autodelete: true
+    no-autodownload: false
     locale-subset: false
 
 modules:
