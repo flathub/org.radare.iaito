@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="addon">
+  <id>org.radare.iaito.translations</id>
+  <extends>org.radare.iaito</extends>
+  <name>iaito-translations</name>
+  <summary>Community translations for iaito</summary>
+  <url type="homepage">https://www.radare.org/</url>
+  <url type="contribute">https://crowdin.com/project/iaito</url>
+  <url type="vcs-browser">https://github.com/radareorg/iaito-translations</url>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>LGPL-2.0</project_license>
+</component>
