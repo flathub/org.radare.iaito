@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="addon">
+  <id>org.radare.iaito.webui</id>
+  <extends>org.radare.iaito</extends>
+  <name>iaito-radare2-webui</name>
+  <summary>Radare2 WebUI addon for iaito</summary>
+  <url type="homepage">https://www.radare.org/</url>
+  <url type="bugtracker">https://github.com/radareorg/radare2/issues</url>
+  <url type="vcs-browser">https://github.com/radareorg/radare2</url>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-3.0</project_license>
+</component>

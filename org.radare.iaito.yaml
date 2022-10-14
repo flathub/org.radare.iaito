@@ -48,6 +48,7 @@ modules:
       - mkdir -p /app/share/iaito/webui
       - mv /app/share/radare2/*.*.*/www /app/share/iaito/webui/
       - ln -s ../../iaito/webui/www /app/share/radare2/*.*.*/
+      - install -Dpm644 -t /app/share/appdata ../org.radare.iaito.webui.appdata.xml
     sources:
       - type: git
         url: https://github.com/radareorg/radare2.git
@@ -71,6 +72,8 @@ modules:
         #   tag-query: .tag_name
         #   version-query: $tag
         #   timestamp-query: .published_at
+      - type: file
+        path: extensions/org.radare.iaito.webui.appdata.xml
 
   - name: r2ghidra
     # Using ACR since meson is currently not working
@@ -155,8 +158,11 @@ modules:
     buildsystem: simple
     build-commands:
       - make install PREFIX=/app
+      - install -Dpm644 -t /app/share/appdata org.radare.iaito.translations.appdata.xml
     sources:
       - type: git
         url: https://github.com/radareorg/iaito-translations.git
         branch: master
         commit: ab923335409fa298c39f0014588d78d926c6f3a2
+      - type: file
+        path: extensions/org.radare.iaito.translations.appdata.xml
