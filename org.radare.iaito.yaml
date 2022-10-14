@@ -15,7 +15,6 @@ cleanup:
   - /lib/pkgconfig
   - /share/man
   - /share/zsh
-  - /share/radare2/*/www
 
 # Separate translations manually since currently flatpak
 #  don't split share/app/translations folder automatically
@@ -28,9 +27,24 @@ add-extensions:
     no-autodownload: false
     locale-subset: false
 
+# WebUI optional extension
+  org.radare.iaito.webui:
+    directory: share/iaito/webui
+    bundle: true
+    autodelete: true
+    no-autodownload: true
+    locale-subset: false
+
 modules:
   - name: radare2
     buildsystem: meson
+    # Not working right now, moving it manually at post-install
+    # config-options:
+    #   - -Dr2_wwwroot=/app/share/iaito/webui/www
+    post-install:
+      - mkdir -p /app/share/iaito/webui
+      - mv /app/share/radare2/*.*.*/www /app/share/iaito/webui/
+      - ln -s ../../iaito/webui/www /app/share/radare2/*.*.*/
     sources:
       - type: git
         url: https://github.com/radareorg/radare2.git
