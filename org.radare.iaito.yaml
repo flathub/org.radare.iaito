@@ -145,7 +145,6 @@ modules:
         url: https://github.com/radareorg/iaito.git
         tag: 5.7.8
         commit: cccaa3772a20f58f126c4c4747e9453543c6a043
-        disable-submodules: true
         x-checker-data:
           type: json
           url: https://api.github.com/repos/radareorg/iaito/releases/latest
