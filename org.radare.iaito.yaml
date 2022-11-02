@@ -83,14 +83,14 @@ modules:
     sources:
       - type: git
         url: https://github.com/radareorg/r2ghidra.git
-        # tag: 5.7.7
-        commit: f374572587cadc32405d71cc3fa667232cae88e6
-        # x-checker-data:
-        #   type: json
-        #   url: https://api.github.com/repos/radareorg/r2ghidra/releases/latest
-        #   tag-query: .tag_name
-        #   version-query: $tag
-        #   timestamp-query: .published_at
+        tag: 5.7.8
+        commit: b84865d73e843a5c8297057a7b18a50f3917a36e
+        x-checker-data:
+          type: json
+          url: https://api.github.com/repos/radareorg/r2ghidra/releases/latest
+          tag-query: .tag_name
+          version-query: $tag
+          timestamp-query: .published_at
       - type: git
         url: https://github.com/radareorg/ghidra-native.git
         tag: 0.2.5
