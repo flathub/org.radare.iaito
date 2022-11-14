@@ -162,6 +162,6 @@ modules:
       - type: git
         url: https://github.com/radareorg/iaito-translations.git
         branch: master
-        commit: ab923335409fa298c39f0014588d78d926c6f3a2
+        commit: e66b3a962a7fc7dfd730764180011ecffbb206bf
       - type: file
         path: extensions/org.radare.iaito.translations.appdata.xml
