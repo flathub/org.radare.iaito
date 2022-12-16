@@ -116,14 +116,14 @@ modules:
     sources:
       - type: git
         url: https://github.com/wargio/r2dec-js.git
-        # tag: 5.7.7
-        commit: 3aa3726a17ceb50d1561d579b560da84a2fc6d50
-        # x-checker-data:
-        #   type: json
-        #   url: https://api.github.com/repos/wargio/r2dec-js/releases/latest
-        #   tag-query: .tag_name
-        #   version-query: $tag
-        #   timestamp-query: .published_at
+        tag: 5.7.8
+        commit: c75abffb3e89f999514dfad1a66514a59b8f075b
+        x-checker-data:
+          type: json
+          url: https://api.github.com/repos/wargio/r2dec-js/releases/latest
+          tag-query: .tag_name
+          version-query: $tag
+          timestamp-query: .published_at
 
   - name: r2pipe-python
     buildsystem: simple
