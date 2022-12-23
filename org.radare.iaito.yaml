@@ -37,7 +37,7 @@ add-extensions:
 
 modules:
   - name: radare2
-    buildsystem: meson
+    buildsystem: autotools
     build-options:
       cflags: -O3
     config-options:
@@ -52,19 +52,19 @@ modules:
     sources:
       - type: git
         url: https://github.com/radareorg/radare2.git
-        # tag: 5.7.9
-        commit: db1a5d132b75f26d9161c6107a3436d0f134533a
-        disable-fsckobjects: true
-        # x-checker-data:
-        #   type: json
-        #   url: https://api.github.com/repos/radareorg/radare2/releases/latest
-        #   tag-query: .tag_name
-        #   version-query: $tag
-        #   timestamp-query: .published_at
+        tag: 5.8.0
+        commit: 7c55e4b61a5463262f5aa999ed52ba1cb777c198
+        # disable-fsckobjects: true
+        x-checker-data:
+          type: json
+          url: https://api.github.com/repos/radareorg/radare2/releases/latest
+          tag-query: .tag_name
+          version-query: $tag
+          timestamp-query: .published_at
       - type: git
         url: https://github.com/capstone-engine/capstone.git
         # tag: 5.0.0
-        commit: 0d0e684358afd0889b98deaf3941caa9c6855cae
+        commit: 12e8258f60647a997ffa72702a9e5b37bd622044
         dest: shlr/capstone
         # x-checker-data:
         #   type: json
@@ -72,6 +72,20 @@ modules:
         #   tag-query: .tag_name
         #   version-query: $tag
         #   timestamp-query: .published_at
+      - type: git
+        url: https://github.com/radareorg/vector35-arch-arm64.git
+        tag: 5.8.0
+        commit: c9e7242972837ac11fc94db05fabcb801a8269c9
+        dest: libr/arch/p/arm/v35arm64/arch-arm64
+        x-checker-data:
+          type: git
+      - type: git
+        url: https://github.com/radareorg/vector35-arch-armv7.git
+        tag: 5.8.0
+        commit: dde39f69ffea19fc37e681874b12cb4707bc4f30
+        dest: libr/arch/p/arm/v35arm64/arch-armv7
+        x-checker-data:
+          type: git
       - type: file
         path: extensions/org.radare.iaito.webui.appdata.xml
 
