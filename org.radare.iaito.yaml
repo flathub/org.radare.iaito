@@ -90,15 +90,14 @@ modules:
         path: extensions/org.radare.iaito.webui.appdata.xml
 
   - name: r2ghidra
-    # Using ACR since meson is currently not working
     buildsystem: autotools
     build-options:
       cflags: -O3
     sources:
       - type: git
         url: https://github.com/radareorg/r2ghidra.git
-        tag: 5.7.8
-        commit: b84865d73e843a5c8297057a7b18a50f3917a36e
+        tag: 5.8.0
+        commit: 1a95d09b3f542368cb07de3a9c29a2528096b69f
         x-checker-data:
           type: json
           url: https://api.github.com/repos/radareorg/r2ghidra/releases/latest
@@ -111,11 +110,7 @@ modules:
         commit: 6ce2dc2fee1ec1262bd0622c879ded8cb74e4ead
         dest: ghidra-native
         x-checker-data:
-          type: json
-          url: https://api.github.com/repos/radareorg/ghidra-native/releases/latest
-          tag-query: .tag_name
-          version-query: $tag
-          timestamp-query: .published_at
+          type: git
       - type: shell # preconfigure
         commands:
           - make -C ghidra-native patch
