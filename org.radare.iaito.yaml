@@ -37,34 +37,34 @@ add-extensions:
 
 modules:
   - name: radare2
-    buildsystem: meson
+    buildsystem: autotools
     build-options:
       cflags: -O3
-    config-options:
+    config-opts:
       - --with-checks-level=0
     # Not working right now, moving it manually at post-install
-    #   - -Dr2_wwwroot=/app/share/iaito/webui/www
+    # - R2_WWWROOT=/app/share/iaito/webui/www
     post-install:
       - mkdir -p /app/share/iaito/webui
       - mv /app/share/radare2/*.*.*/www /app/share/iaito/webui/
       - ln -s ../../iaito/webui/www /app/share/radare2/*.*.*/
-      - install -Dpm644 -t /app/share/appdata ../org.radare.iaito.webui.appdata.xml
+      - install -Dpm644 -t /app/share/iaito/webui/share/appdata org.radare.iaito.webui.appdata.xml
     sources:
       - type: git
         url: https://github.com/radareorg/radare2.git
-        # tag: 5.7.9
-        commit: db1a5d132b75f26d9161c6107a3436d0f134533a
-        disable-fsckobjects: true
-        # x-checker-data:
-        #   type: json
-        #   url: https://api.github.com/repos/radareorg/radare2/releases/latest
-        #   tag-query: .tag_name
-        #   version-query: $tag
-        #   timestamp-query: .published_at
+        tag: 5.8.0
+        commit: 7c55e4b61a5463262f5aa999ed52ba1cb777c198
+        # disable-fsckobjects: true
+        x-checker-data:
+          type: json
+          url: https://api.github.com/repos/radareorg/radare2/releases/latest
+          tag-query: .tag_name
+          version-query: $tag
+          timestamp-query: .published_at
       - type: git
         url: https://github.com/capstone-engine/capstone.git
         # tag: 5.0.0
-        commit: 0d0e684358afd0889b98deaf3941caa9c6855cae
+        commit: 12e8258f60647a997ffa72702a9e5b37bd622044
         dest: shlr/capstone
         # x-checker-data:
         #   type: json
@@ -72,19 +72,32 @@ modules:
         #   tag-query: .tag_name
         #   version-query: $tag
         #   timestamp-query: .published_at
+      - type: git
+        url: https://github.com/radareorg/vector35-arch-arm64.git
+        tag: 5.8.0
+        commit: c9e7242972837ac11fc94db05fabcb801a8269c9
+        dest: libr/arch/p/arm/v35arm64/arch-arm64
+        x-checker-data:
+          type: git
+      - type: git
+        url: https://github.com/radareorg/vector35-arch-armv7.git
+        tag: 5.8.0
+        commit: dde39f69ffea19fc37e681874b12cb4707bc4f30
+        dest: libr/arch/p/arm/v35arm64/arch-armv7
+        x-checker-data:
+          type: git
       - type: file
         path: extensions/org.radare.iaito.webui.appdata.xml
 
   - name: r2ghidra
-    # Using ACR since meson is currently not working
     buildsystem: autotools
     build-options:
       cflags: -O3
     sources:
       - type: git
         url: https://github.com/radareorg/r2ghidra.git
-        tag: 5.7.8
-        commit: b84865d73e843a5c8297057a7b18a50f3917a36e
+        tag: 5.8.0
+        commit: 1a95d09b3f542368cb07de3a9c29a2528096b69f
         x-checker-data:
           type: json
           url: https://api.github.com/repos/radareorg/r2ghidra/releases/latest
@@ -97,11 +110,7 @@ modules:
         commit: 6ce2dc2fee1ec1262bd0622c879ded8cb74e4ead
         dest: ghidra-native
         x-checker-data:
-          type: json
-          url: https://api.github.com/repos/radareorg/ghidra-native/releases/latest
-          tag-query: .tag_name
-          version-query: $tag
-          timestamp-query: .published_at
+          type: git
       - type: shell # preconfigure
         commands:
           - make -C ghidra-native patch
@@ -143,8 +152,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/radareorg/iaito.git
-        tag: 5.7.8
-        commit: cccaa3772a20f58f126c4c4747e9453543c6a043
+        tag: 5.8.0
+        commit: cbf1992d78224f7e2a8ae7bd5701b759908a723f
         x-checker-data:
           type: json
           url: https://api.github.com/repos/radareorg/iaito/releases/latest
@@ -157,7 +166,7 @@ modules:
     buildsystem: simple
     build-commands:
       - make install PREFIX=/app
-      - install -Dpm644 -t /app/share/appdata org.radare.iaito.translations.appdata.xml
+      - install -Dpm644 -t /app/share/iaito/translations/share/appdata org.radare.iaito.translations.appdata.xml
     sources:
       - type: git
         url: https://github.com/radareorg/iaito-translations.git
