@@ -52,8 +52,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/radareorg/radare2.git
-        tag: 5.8.0
-        commit: 7c55e4b61a5463262f5aa999ed52ba1cb777c198
+        tag: 5.8.2
+        commit: ea0d5e63b899c284ac6159200a6014891effb596
         # disable-fsckobjects: true
         x-checker-data:
           type: json
