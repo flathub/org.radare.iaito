@@ -150,16 +150,16 @@ modules:
     buildsystem: qmake
     subdir: src
     sources:
-      - type: git
-        url: https://github.com/radareorg/iaito.git
-        tag: 5.8.0
-        commit: cbf1992d78224f7e2a8ae7bd5701b759908a723f
+      - type: archive
+        url: https://api.github.com/repos/radareorg/iaito/tarball/5.8.0
+        archive-type: tar-gzip
+        sha256: 661ee1d3c30bad9fa6a2d86ba7c0f48b3bc04ca8e3d2c7a7e418c8e2d0c34cb3
         x-checker-data:
           type: json
           url: https://api.github.com/repos/radareorg/iaito/releases/latest
-          tag-query: .tag_name
-          version-query: $tag
           timestamp-query: .published_at
+          version-query: .tag_name
+          url-query: .tarball_url
           is-main-source: true
 
   - name: iaito-translations
