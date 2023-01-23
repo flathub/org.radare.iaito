@@ -71,8 +71,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/radareorg/r2ghidra.git
-        tag: 5.8.0
-        commit: 1a95d09b3f542368cb07de3a9c29a2528096b69f
+        tag: 5.8.2
+        commit: 9b2687d08e27bee754da0efd83f8ed4d26eb485b
         x-checker-data:
           type: json
           url: https://api.github.com/repos/radareorg/r2ghidra/releases/latest
