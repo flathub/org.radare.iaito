@@ -6,7 +6,7 @@ Official Radare Iaito Flatpak package.
 
 ## Permissions
 
-- GUI: `wayland`, X11 (`ipc` + `fallback-x11`).
+- GUI: `wayland`, X11 (`ipc` + `fallback-x11`), dri.
 
 ## Special configurations
 

@@ -7,6 +7,7 @@ sdk: org.kde.Sdk
 command: iaito
 finish-args:
   - --share=ipc
+  - --device=dri
   - --socket=wayland
   - --socket=fallback-x11
 
