@@ -127,9 +127,9 @@ modules:
     subdir: src
     sources:
       - type: archive
-        url: https://api.github.com/repos/radareorg/iaito/tarball/5.8.0
+        url: https://api.github.com/repos/radareorg/iaito/tarball/5.8.2
         archive-type: tar-gzip
-        sha256: 661ee1d3c30bad9fa6a2d86ba7c0f48b3bc04ca8e3d2c7a7e418c8e2d0c34cb3
+        sha256: 4962b0e9c9130caca23d0b050a47a9bde04d32ad8938046bde07e18209fcc7b5
         x-checker-data:
           type: json
           url: https://api.github.com/repos/radareorg/iaito/releases/latest
