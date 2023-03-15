@@ -52,9 +52,9 @@ modules:
       - install -Dpm644 -t /app/share/iaito/webui/share/appdata org.radare.iaito.webui.appdata.xml
     sources:
       - type: archive
-        url: https://github.com/radareorg/radare2/releases/download/5.8.2/radare2-5.8.2.tar.xz
+        url: https://github.com/radareorg/radare2/releases/download/5.8.4/radare2-5.8.4.tar.xz
         archive-type: tar-xz
-        sha256: 032e694cc637bde48bf4361206ca44b232764a30b75145bc8b34d3acaddb2685
+        sha256: b26e48d189e6f03519415d54417818dd596bce0b6c41e3aecc732cf847b3eb21
         x-checker-data:
           type: json
           url: https://api.github.com/repos/radareorg/radare2/releases/latest
