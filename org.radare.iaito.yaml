@@ -99,16 +99,16 @@ modules:
     config-opts:
       - -Djsc_folder=..
     sources:
-      - type: archive
-        url: https://api.github.com/repos/wargio/r2dec-js/tarball/5.7.8
-        archive-type: tar-gzip
-        sha256: df0972287d775e95b19c29f97af6e36e139f88ecbd7d8ce40b128db714d7d55b
+      - type: git
+        url: https://github.com/wargio/r2dec-js.git
+        tag: 5.7.8
+        commit: c75abffb3e89f999514dfad1a66514a59b8f075b
         x-checker-data:
           type: json
           url: https://api.github.com/repos/wargio/r2dec-js/releases/latest
           timestamp-query: .published_at
           version-query: .tag_name
-          url-query: .tarball_url
+          tag-query: .tag_name
 
   - name: r2pipe-python
     buildsystem: simple
@@ -126,16 +126,16 @@ modules:
     buildsystem: qmake
     subdir: src
     sources:
-      - type: archive
-        url: https://api.github.com/repos/radareorg/iaito/tarball/5.8.6
-        archive-type: tar-gzip
-        sha256: 05cba27202d066247bf53b0be59b8abc6ab547329a5307d2697250c4e401d265
+      - type: git
+        url: https://github.com/radareorg/iaito.git
+        tag: 5.8.6
+        commit: 67679349064a655d678df8727148a5f8ebf68599
         x-checker-data:
           type: json
           url: https://api.github.com/repos/radareorg/iaito/releases/latest
           timestamp-query: .published_at
           version-query: .tag_name
-          url-query: .tarball_url
+          tag-query: .tag_name
           is-main-source: true
 
   - name: iaito-translations
