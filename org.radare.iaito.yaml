@@ -90,6 +90,63 @@ modules:
         commands:
           - make -C ghidra-native patch
 
+  - name: r2frida
+    buildsystem: autotools
+    build-options:
+      cflags: -O3
+    config-opts:
+      - --with-precompiled-agent
+      - --with-checks-level=0
+    sources:
+      - type: archive
+        url: https://api.github.com/repos/nowsecure/r2frida/tarball/5.8.0
+        archive-type: tar-gzip
+        sha256: 8d70378917611a5151aedf955e6c9256592d4216d17be9ce7cc1c64922083d37
+        git-init: true # Temporal workarround until https://github.com/nowsecure/r2frida/pull/454
+        x-checker-data:
+          type: json
+          url: https://api.github.com/repos/nowsecure/r2frida/releases/latest
+          timestamp-query: .published_at
+          version-query: .tag_name
+          url-query: .tarball_url
+      - type: file
+        url: https://github.com/nowsecure/r2frida/releases/download/5.8.0/_agent.js
+        sha256: ae83f53fa249df98e2bf3f7aa81031ee6aa6352562c7def6b66118df1a4109bc
+        dest: src/_agent.js
+        x-checker-data:
+          type: json
+          url: https://api.github.com/repos/nowsecure/r2frida/releases/latest
+          timestamp-query: .published_at
+          version-query: .tag_name
+          url-query: |-
+            .assets[] | select(.name=="_agent.js") | .browser_download_url
+      - type: archive
+        url: https://github.com/frida/frida/releases/download/16.0.8/frida-core-devkit-16.0.8-linux-x86_64.tar.xz
+        archive-type: tar-xz
+        sha256: bfd0a71f673bbf134dcdcf1d8476641af521a62421c21ba0d46a8d3de5d614e2
+        dest: ext/frida-linux-16.0.8
+        only-arches: [x86_64]
+        x-checker-data:
+          type: json
+          url: https://api.github.com/repos/frida/frida/releases/latest
+          timestamp-query: .published_at
+          version-query: .tag_name
+          url-query: |-
+            .assets[] | select(.name=="frida-core-devkit-" + $version + "-linux-x86_64.tar.xz") | .browser_download_url
+      - type: archive
+        url: https://github.com/frida/frida/releases/download/16.0.8/frida-core-devkit-16.0.8-linux-arm64.tar.xz
+        archive-type: tar-xz
+        sha256: bd95986563a92f1d18c5ea9ccce4c6eb3c1944542aabaab05b5a196f9891bf42
+        dest: ext/frida-linux-16.0.8
+        only-arches: [aarch64]
+        x-checker-data:
+          type: json
+          url: https://api.github.com/repos/frida/frida/releases/latest
+          timestamp-query: .published_at
+          version-query: .tag_name
+          url-query: |-
+            .assets[] | select(.name=="frida-core-devkit-" + $version + "-linux-arm64.tar.xz") | .browser_download_url
+
   - name: r2dec
     buildsystem: meson
     subdir: p
