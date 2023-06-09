@@ -126,26 +126,12 @@ modules:
         sha256: bfd0a71f673bbf134dcdcf1d8476641af521a62421c21ba0d46a8d3de5d614e2
         dest: ext/frida-linux-16.0.8
         only-arches: [x86_64]
-        x-checker-data:
-          type: json
-          url: https://api.github.com/repos/frida/frida/releases/latest
-          timestamp-query: .published_at
-          version-query: .tag_name
-          url-query: |-
-            .assets[] | select(.name=="frida-core-devkit-" + $version + "-linux-x86_64.tar.xz") | .browser_download_url
       - type: archive
         url: https://github.com/frida/frida/releases/download/16.0.8/frida-core-devkit-16.0.8-linux-arm64.tar.xz
         archive-type: tar-xz
         sha256: bd95986563a92f1d18c5ea9ccce4c6eb3c1944542aabaab05b5a196f9891bf42
         dest: ext/frida-linux-16.0.8
         only-arches: [aarch64]
-        x-checker-data:
-          type: json
-          url: https://api.github.com/repos/frida/frida/releases/latest
-          timestamp-query: .published_at
-          version-query: .tag_name
-          url-query: |-
-            .assets[] | select(.name=="frida-core-devkit-" + $version + "-linux-arm64.tar.xz") | .browser_download_url
 
   - name: r2dec
     buildsystem: meson
