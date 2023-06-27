@@ -85,8 +85,6 @@ modules:
         tag: 0.2.5
         commit: 6ce2dc2fee1ec1262bd0622c879ded8cb74e4ead
         dest: ghidra-native
-        x-checker-data:
-          type: git
       - type: shell # preconfigure
         commands:
           - make -C ghidra-native patch
