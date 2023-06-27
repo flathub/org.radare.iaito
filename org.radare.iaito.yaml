@@ -82,8 +82,8 @@ modules:
           timestamp-query: .published_at
       - type: git
         url: https://github.com/radareorg/ghidra-native.git
-        tag: 0.2.5
-        commit: 6ce2dc2fee1ec1262bd0622c879ded8cb74e4ead
+        tag: 0.3.0
+        commit: 582e870d4080896ffc217f884c2cfa06c10c5695
         dest: ghidra-native
         x-checker-data:
           type: git
