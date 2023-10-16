@@ -48,13 +48,14 @@ Since the application folder is readonly it has been enabled the following confi
 
 ## CLI
 
-With this flatpak, one can radare2 cli.
+With this flatpak, you can also run radare2 as cli.
+
 To do so one need to define the following aliases:
 ```sh
 alias r2='flatpak run --command=r2 org.radare.iaito'
 alias r2agent='flatpak run --command=r2agent org.radare.iaito'
 alias r2p='flatpak run --command=r2p org.radare.iaito'
-alias r2pm='flatpak run --command=r2pm org.radare.iaito'
+alias r2pm='flatpak run --command=r2pm --share=network --runtime=org.kde.Sdk org.radare.iaito'
 alias r2r='flatpak run --command=r2r org.radare.iaito'
 alias rabin2='flatpak run --command=rabin2 org.radare.iaito'
 alias radare2='flatpak run --command=radare2 org.radare.iaito'
@@ -69,8 +70,10 @@ alias ravc2='flatpak run --command=ravc2 org.radare.iaito'
 alias rax2='flatpak run --command=rax2 org.radare.iaito'
 ```
 
-With this commands, by default no files will be accesible.
+With this commands, by default no local files will be accesible.
 To allow acces to a folder please use the special permissions procedure explained above.
+
+Also for r2pm, network is mandatory to be usable (for the packages repository), as well as an SDK runtime (for git and build tools) so the first run might require you to install the corresponding flatpak SDK.
 
 ## Projects included
 
