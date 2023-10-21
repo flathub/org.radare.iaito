@@ -6,16 +6,13 @@ Official Radare Iaito Flatpak package.
 
 ## Permissions
 
-The only required permissions are for GUI: `wayland`, X11 (`ipc` + `fallback-x11`), `dri`.
+The required permissions for GUI are: `wayland`, X11 (`ipc` + `fallback-x11`), `dri`.
+Also to allow ptrace in radare2: `devel`.
+
 
 ### Optional permissions
 
 Some other permissions can be added using [Flatseal](https://flathub.org/apps/details/com.github.tchx84.Flatseal) GUI or via CLI using `flatpak override`.
-
-Some examples are, to allow radare to debug using ptrace:
-```sh
-flatpak override --user --allow=devel org.radare.iaito
-```
 
 To allow radare plugins to connect to your network or Internet:
 ```sh
