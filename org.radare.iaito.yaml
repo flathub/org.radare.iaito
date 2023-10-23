@@ -90,6 +90,48 @@ modules:
         commands:
           - make -C ghidra-native patch
 
+  - name: r2frida
+    buildsystem: autotools
+    build-options:
+      cflags: -O3
+    config-opts:
+      - --with-precompiled-agent
+      - --with-checks-level=0
+    sources:
+      - type: git
+        url: https://github.com/nowsecure/r2frida.git
+        tag: 5.8.8
+        commit: d887153fd0bc360f530bf03abda9e61f791a051a
+        # x-checker-data:
+        #   type: json
+        #   url: https://api.github.com/repos/nowsecure/r2frida/releases/latest
+        #   timestamp-query: .published_at
+        #   version-query: .tag_name
+        #   tag-query: .tag_name
+      - type: file
+        url: https://github.com/nowsecure/r2frida/releases/download/5.8.8/_agent.js
+        sha256: 1b7b991e8f23ff9d2ea271b5f1258e662f6b619bcc9289b75c55d22535e60559
+        dest: src/_agent.js
+        # x-checker-data:
+        #   type: json
+        #   url: https://api.github.com/repos/nowsecure/r2frida/releases/latest
+        #   timestamp-query: .published_at
+        #   version-query: .tag_name
+        #   url-query: |-
+        #     .assets[] | select(.name=="_agent.js") | .browser_download_url
+      - type: archive
+        url: https://github.com/frida/frida/releases/download/16.0.19/frida-core-devkit-16.0.19-linux-x86_64.tar.xz
+        archive-type: tar-xz
+        sha256: c8d5cdaaff1e09ba5d40a152869021eab50212e22dace48d34b3a31128a63dd9
+        dest: ext/frida-linux-16.0.19
+        only-arches: [x86_64]
+      - type: archive
+        url: https://github.com/frida/frida/releases/download/16.0.19/frida-core-devkit-16.0.19-linux-arm64.tar.xz
+        archive-type: tar-xz
+        sha256: d666a6a4f9adcc6285f18167673ef49c7e3fdbaa7983b786bdaaf8d46e2f2a54
+        dest: ext/frida-linux-16.0.19
+        only-arches: [aarch64]
+
   - name: r2dec
     buildsystem: meson
     subdir: p
