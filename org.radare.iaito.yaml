@@ -50,7 +50,8 @@ modules:
       - mv /app/share/radare2/*.*.*/www /app/share/iaito/webui/
       - ln -s ../../iaito/webui/www /app/share/radare2/*.*.*/
       - install -Dpm644 -t /app/share/iaito/webui/share/metainfo org.radare.iaito.webui.metainfo.xml
-      - appstream-compose --basename=org.radare.iaito.webui --prefix=/app/share/iaito/webui --origin=flatpak org.radare.iaito.webui
+      - appstream-compose --basename=org.radare.iaito.webui --prefix=/app/share/iaito/webui
+        --origin=flatpak org.radare.iaito.webui
     sources:
       - type: archive
         url: https://github.com/radareorg/radare2/releases/download/5.8.8/radare2-5.8.8.tar.xz
@@ -73,8 +74,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/radareorg/r2ghidra.git
-        tag: 5.8.6
-        commit: fc78eb69563da06034bc16ceeff39619be50c8f5
+        tag: 5.8.8
+        commit: 345ea97fd25f5108f0e4e3aba52468cb2ae95f64
         x-checker-data:
           type: json
           url: https://api.github.com/repos/radareorg/r2ghidra/releases/latest
@@ -184,7 +185,8 @@ modules:
     build-commands:
       - make install PREFIX=/app
       - install -Dpm644 -t /app/share/iaito/translations/share/metainfo org.radare.iaito.translations.metainfo.xml
-      - appstream-compose --basename=org.radare.iaito.translations --prefix=/app/share/iaito/translations --origin=flatpak org.radare.iaito.translations
+      - appstream-compose --basename=org.radare.iaito.translations --prefix=/app/share/iaito/translations
+        --origin=flatpak org.radare.iaito.translations
     sources:
       - type: git
         url: https://github.com/radareorg/iaito-translations.git
