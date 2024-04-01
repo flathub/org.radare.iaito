@@ -123,22 +123,26 @@ modules:
 
   - name: r2dec
     buildsystem: meson
-    subdir: p
     build-options:
       cflags: -O3
-    config-opts:
-      - -Djsc_folder=..
     sources:
       - type: git
         url: https://github.com/wargio/r2dec-js.git
-        tag: 5.8.8
-        commit: 02f4a5dae4f44d8e3329b7bd09be6216b1009386
-        x-checker-data:
-          type: json
-          url: https://api.github.com/repos/wargio/r2dec-js/releases/latest
-          timestamp-query: .published_at
-          version-query: .tag_name
-          tag-query: .tag_name
+        # tag: 5.9.0
+        commit: 2fc6a3ae3c7dd9a1687d71de3e15035c1665b7c8
+        # x-checker-data:
+        #   type: json
+        #   url: https://api.github.com/repos/wargio/r2dec-js/releases/latest
+        #   timestamp-query: .published_at
+        #   version-query: .tag_name
+        #   tag-query: .tag_name
+      - type: git
+        url: https://github.com/frida/quickjs.git
+        commit: c81f05c9859cea5f83a80057416a0c7affe9b876
+        dest: subprojects/libquickjs
+      - type: shell
+        commands:
+          - meson subprojects packagefiles --apply
 
   - name: r2pipe-python
     buildsystem: simple
