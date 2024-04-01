@@ -162,15 +162,15 @@ modules:
     sources:
       - type: git
         url: https://github.com/radareorg/iaito.git
-        tag: 5.9.0
-        commit: eaba7bbdad9cf4c4152657160df55c176a8607aa
-        x-checker-data:
-          type: json
-          url: https://api.github.com/repos/radareorg/iaito/releases/latest
-          timestamp-query: .published_at
-          version-query: .tag_name
-          tag-query: .tag_name
-          is-main-source: true
+        # tag: 5.9.0
+        commit: 2b47060190f434e45ad6a28209414a76f1b9aef3
+        # x-checker-data:
+        #   type: json
+        #   url: https://api.github.com/repos/radareorg/iaito/releases/latest
+        #   timestamp-query: .published_at
+        #   version-query: .tag_name
+        #   tag-query: .tag_name
+        #   is-main-source: true
 
   - name: iaito-translations
     buildsystem: simple
