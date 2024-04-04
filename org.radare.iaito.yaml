@@ -126,23 +126,18 @@ modules:
     build-options:
       cflags: -O3
     sources:
-      - type: git
-        url: https://github.com/wargio/r2dec-js.git
-        # tag: 5.9.0
-        commit: 2fc6a3ae3c7dd9a1687d71de3e15035c1665b7c8
-        # x-checker-data:
-        #   type: json
-        #   url: https://api.github.com/repos/wargio/r2dec-js/releases/latest
-        #   timestamp-query: .published_at
-        #   version-query: .tag_name
-        #   tag-query: .tag_name
-      - type: git
-        url: https://github.com/frida/quickjs.git
-        commit: c81f05c9859cea5f83a80057416a0c7affe9b876
-        dest: subprojects/libquickjs
-      - type: shell
-        commands:
-          - meson subprojects packagefiles --apply
+      - type: archive
+        url: https://github.com/wargio/r2dec-js/releases/download/5.9.0/r2dec-5.9.0-src-with-deps.zip
+        archive-type: zip
+        sha256: b07b26f4318f21ca64cd8c2609b1acea6b2310754e980012511c5c34a426d467
+        strip-components: 0
+        x-checker-data:
+          type: json
+          url: https://api.github.com/repos/wargio/r2dec-js/releases/latest
+          timestamp-query: .published_at
+          version-query: .tag_name
+          url-query: |-
+            .assets[] | select(.name=="r2dec-" + $version + "-src-with-deps.zip") | .browser_download_url
 
   - name: r2pipe-python
     buildsystem: simple
