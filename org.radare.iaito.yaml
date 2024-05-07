@@ -148,8 +148,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/radareorg/r2yara.git
-        tag: 1.2.2
-        commit: 020febac0858ffe33327695b0d46032726979703
+        tag: 1.3.0
+        commit: b08271fdaf8e168628a6a75dc1aefd975533e295
         x-checker-data:
           type: json
           url: https://api.github.com/repos/radareorg/r2yara/releases/latest
