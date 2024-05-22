@@ -74,8 +74,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/radareorg/r2ghidra.git
-        tag: 5.9.0
-        commit: 931e86e859b9db6737d64dd93b73228ca15e0fdd
+        tag: 5.9.2
+        commit: 5530c1be88e0caf5c25a882b29b76debe882bb9e
         # x-checker-data:
         #   type: json
         #   url: https://api.github.com/repos/radareorg/r2ghidra/releases/latest
@@ -84,8 +84,8 @@ modules:
         #   timestamp-query: .published_at
       - type: git
         url: https://github.com/radareorg/ghidra-native.git
-        tag: 0.4.2
-        commit: 79477afc506f2a83679ab5ff7c28b20da0956d6c
+        tag: 0.4.5
+        commit: 3ffbabffe167eeeb38c1801e6e29f7dfdaed792e
         dest: ghidra-native
       - type: shell # preconfigure
         commands:
@@ -100,8 +100,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/nowsecure/r2frida.git
-        tag: 5.9.0
-        commit: 4311e2e0264bc7f4aa27a7eff94fd04acd27a579
+        tag: 5.9.2
+        commit: 225d892f1149c9406f7bdc170e3706bafdcf0c4e
         # x-checker-data:
         #   type: json
         #   url: https://api.github.com/repos/nowsecure/r2frida/releases/latest
@@ -109,16 +109,16 @@ modules:
         #   version-query: .tag_name
         #   tag-query: .tag_name
       - type: archive
-        url: https://github.com/frida/frida/releases/download/16.2.1/frida-core-devkit-16.2.1-linux-x86_64.tar.xz
+        url: https://github.com/frida/frida/releases/download/16.2.5/frida-core-devkit-16.2.5-linux-x86_64.tar.xz
         archive-type: tar-xz
-        sha256: ee2a6dc24f996bd0208d7d6b518b6f8bd45283cdb71d5f206bb1b4f40ea32265
-        dest: ext/frida-linux-16.2.1
+        sha256: 4b325e0fdcb277e9b6e25ba95b6a1fa1b5cd916a997185607013c40147d848cc
+        dest: ext/frida-linux-16.2.5
         only-arches: [x86_64]
       - type: archive
-        url: https://github.com/frida/frida/releases/download/16.2.1/frida-core-devkit-16.2.1-linux-arm64.tar.xz
+        url: https://github.com/frida/frida/releases/download/16.2.5/frida-core-devkit-16.2.5-linux-arm64.tar.xz
         archive-type: tar-xz
-        sha256: 58815c55f1c4be0dfc14b38e3c2cdb9f0dfb810a0d85e5d8ecca3a89f541de03
-        dest: ext/frida-linux-16.2.1
+        sha256: b08b7a3deaf51c4c5a93c19dae448fd159a77081160d4777280ce4bdbf3245b6
+        dest: ext/frida-linux-16.2.5
         only-arches: [aarch64]
 
   - name: r2dec
