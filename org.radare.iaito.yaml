@@ -72,21 +72,17 @@ modules:
     build-options:
       cflags: -O3
     sources:
-      - type: git
-        url: https://github.com/radareorg/r2ghidra.git
-        tag: 5.9.2
-        commit: 5530c1be88e0caf5c25a882b29b76debe882bb9e
-        # x-checker-data:
-        #   type: json
-        #   url: https://api.github.com/repos/radareorg/r2ghidra/releases/latest
-        #   tag-query: .tag_name
-        #   version-query: $tag
-        #   timestamp-query: .published_at
-      - type: git
-        url: https://github.com/radareorg/ghidra-native.git
-        tag: 0.4.5
-        commit: 3ffbabffe167eeeb38c1801e6e29f7dfdaed792e
-        dest: ghidra-native
+      - type: archive
+        url: https://github.com/radareorg/r2ghidra/releases/download/5.9.2/r2ghidra-5.9.2.zip
+        archive-type: zip
+        sha256: 80cad0d64178d03d562e25da0fbbf1ba046abd96ca6ab8466697ec5c2473a234
+        x-checker-data:
+          type: json
+          url: https://api.github.com/repos/radareorg/r2ghidra/releases/latest
+          timestamp-query: .published_at
+          version-query: .tag_name
+          url-query: |-
+            .assets[] | select(.name=="r2ghidra-" + $version + ".zip") | .browser_download_url
       - type: shell # preconfigure
         commands:
           - make -C ghidra-native patch
