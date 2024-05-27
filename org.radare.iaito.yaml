@@ -17,6 +17,10 @@ cleanup:
   - /share/man
   - /share/zsh
 
+build-options:
+  env:
+    R2PM_OFFLINE: yes
+
 # Separate translations manually since currently flatpak
 #  don't split share/app/translations folder automatically
 separate-locales: false
