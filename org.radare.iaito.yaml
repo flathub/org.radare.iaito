@@ -128,7 +128,8 @@ modules:
           url-template: https://github.com/frida/frida/releases/download/$version/frida-core-devkit-$version-linux-arm64.tar.xz
       - type: shell # decompress frida-sdk keeping its own version
         commands:
-          - FRIDA_DEST=$(echo frida-core-devkit-*.tar.xz | sed -r 's,^.*-([0-9\.]+)-.*$,ext/frida-linux-\1,'); mkdir -vp "${FRIDA_DEST}" && tar -vxJf frida-core-devkit-*.tar.xz -C "${FRIDA_DEST}"
+          - FRIDA_DEST=$(echo frida-core-devkit-*.tar.xz | sed -r 's,^.*-([0-9\.]+)-.*$,ext/frida-linux-\1,');
+            mkdir -vp "${FRIDA_DEST}" && tar -vxJf frida-core-devkit-*.tar.xz -C "${FRIDA_DEST}"
           - rm -vf frida-core-devkit-*.tar.xz
 
   - name: r2dec
@@ -192,8 +193,8 @@ modules:
       - pip3 install --prefix=/app --no-deps .
     sources:
       - type: archive
-        url: https://files.pythonhosted.org/packages/f2/26/44a626aea707ffcbfc750ab4ec3b3305da7b4d2b4c4d8c308e783847fdc3/r2pipe-1.8.8.tar.gz
-        sha256: c003a63b96debf5ce03dc2688aa2a54b86a750a6b2a3c1ec9dc41733e6f57254
+        url: https://files.pythonhosted.org/packages/ae/ba/1199ad5474bc4770e8ba8adb071a067b419bec1e0d5ad4a39c6137562229/r2pipe-1.9.2.tar.gz
+        sha256: 04d58fdae00970438213dd906a4348ec896cd225d13793d403d71256b8439b1e
         x-checker-data:
           type: pypi
           name: r2pipe
