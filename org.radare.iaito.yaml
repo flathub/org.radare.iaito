@@ -77,16 +77,16 @@ modules:
       cflags: -O3
     sources:
       - type: archive
-        url: https://github.com/radareorg/r2ghidra/releases/download/5.9.2/r2ghidra-5.9.2.zip
-        archive-type: zip
-        sha256: 80cad0d64178d03d562e25da0fbbf1ba046abd96ca6ab8466697ec5c2473a234
+        url: https://github.com/radareorg/r2ghidra/releases/download/5.9.2/r2ghidra-5.9.2.tar.xz
+        archive-type: tar-xz
+        sha256: 6ffdbb4ff82c244fead576c9c4b86302c0b912ebae36b1ac830a69d064ae85ae
         x-checker-data:
           type: json
           url: https://api.github.com/repos/radareorg/r2ghidra/releases/latest
           timestamp-query: .published_at
           version-query: .tag_name
           url-query: |-
-            .assets[] | select(.name=="r2ghidra-" + $version + ".zip") | .browser_download_url
+            .assets[] | select(.name=="r2ghidra-" + $version + ".tar.xz") | .browser_download_url
       - type: shell # preconfigure
         commands:
           - make -C ghidra-native patch
@@ -129,7 +129,8 @@ modules:
       - type: shell # decompress frida-sdk keeping its own version
         commands:
           - FRIDA_DEST=$(echo frida-core-devkit-*.tar.xz | sed -r 's,^.*-([0-9\.]+)-.*$,ext/frida-linux-\1,');
-            mkdir -vp "${FRIDA_DEST}" && tar -vxJf frida-core-devkit-*.tar.xz -C "${FRIDA_DEST}"
+            mkdir -vp "${FRIDA_DEST}" &&
+            tar -vxJf frida-core-devkit-*.tar.xz -C "${FRIDA_DEST}"
           - rm -vf frida-core-devkit-*.tar.xz
 
   - name: r2dec
