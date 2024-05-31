@@ -114,8 +114,8 @@ modules:
         only-arches: [x86_64]
         x-checker-data:
           type: html
-          url: https://github.com/nowsecure/r2frida/raw/master/Makefile
-          version-pattern: frida_version.?=([\d\.]+)
+          url: https://github.com/nowsecure/r2frida/releases/latest
+          version-pattern: Frida\s*([\d\.]+)
           url-template: https://github.com/frida/frida/releases/download/$version/frida-core-devkit-$version-linux-x86_64.tar.xz
       - type: file
         url: https://github.com/frida/frida/releases/download/16.2.5/frida-core-devkit-16.2.5-linux-arm64.tar.xz
@@ -123,8 +123,8 @@ modules:
         only-arches: [aarch64]
         x-checker-data:
           type: html
-          url: https://github.com/nowsecure/r2frida/raw/master/Makefile
-          version-pattern: frida_version.?=([\d\.]+)
+          url: https://github.com/nowsecure/r2frida/releases/latest
+          version-pattern: Frida\s*([\d\.]+)
           url-template: https://github.com/frida/frida/releases/download/$version/frida-core-devkit-$version-linux-arm64.tar.xz
       - type: shell # decompress frida-sdk keeping its own version
         commands:
