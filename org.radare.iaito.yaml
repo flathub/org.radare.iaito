@@ -109,8 +109,8 @@ modules:
           version-query: .tag_name
           tag-query: .tag_name
       - type: file
-        url: https://github.com/frida/frida/releases/download/16.2.5/frida-core-devkit-16.2.5-linux-x86_64.tar.xz
-        sha256: 4b325e0fdcb277e9b6e25ba95b6a1fa1b5cd916a997185607013c40147d848cc
+        url: https://github.com/frida/frida/releases/download/16.3.0/frida-core-devkit-16.3.0-linux-x86_64.tar.xz
+        sha256: 3372802cf30c8eb52f28ef304d10a9d5058033cb3c164c77543a7dd4146cd294
         only-arches: [x86_64]
         x-checker-data:
           type: html
@@ -118,8 +118,8 @@ modules:
           version-pattern: frida_version.?=([\d\.]+)
           url-template: https://github.com/frida/frida/releases/download/$version/frida-core-devkit-$version-linux-x86_64.tar.xz
       - type: file
-        url: https://github.com/frida/frida/releases/download/16.2.5/frida-core-devkit-16.2.5-linux-arm64.tar.xz
-        sha256: b08b7a3deaf51c4c5a93c19dae448fd159a77081160d4777280ce4bdbf3245b6
+        url: https://github.com/frida/frida/releases/download/16.3.0/frida-core-devkit-16.3.0-linux-arm64.tar.xz
+        sha256: 5a015fed3edf9a51396a635403f5c0629a0d6810793758f825f0b055f0bea0fe
         only-arches: [aarch64]
         x-checker-data:
           type: html
@@ -129,8 +129,7 @@ modules:
       - type: shell # decompress frida-sdk keeping its own version
         commands:
           - FRIDA_DEST=$(echo frida-core-devkit-*.tar.xz | sed -r 's,^.*-([0-9\.]+)-.*$,ext/frida-linux-\1,');
-            mkdir -vp "${FRIDA_DEST}" &&
-            tar -vxJf frida-core-devkit-*.tar.xz -C "${FRIDA_DEST}"
+            mkdir -vp "${FRIDA_DEST}" && tar -vxJf frida-core-devkit-*.tar.xz -C "${FRIDA_DEST}"
           - rm -vf frida-core-devkit-*.tar.xz
 
   - name: r2dec
