@@ -113,24 +113,29 @@ modules:
         sha256: 4b325e0fdcb277e9b6e25ba95b6a1fa1b5cd916a997185607013c40147d848cc
         only-arches: [x86_64]
         x-checker-data:
-          type: html
-          url: https://github.com/nowsecure/r2frida/releases/latest
-          version-pattern: Frida\s*([\d\.]+)
-          url-template: https://github.com/frida/frida/releases/download/$version/frida-core-devkit-$version-linux-x86_64.tar.xz
+          type: json
+          url: https://api.github.com/repos/nowsecure/r2frida/releases/latest
+          version-query: .body | capture("Frida +(?<frida_version>[0-9.]+)") | .frida_version
+          url-data-url: >-
+            "https://api.github.com/repos/frida/frida/releases/tags/\($version)"
+          url-query: |-
+            .assets[] | select(.name=="frida-core-devkit-" + $version + "-linux-x86_64.tar.xz") | .browser_download_url
       - type: file
         url: https://github.com/frida/frida/releases/download/16.2.5/frida-core-devkit-16.2.5-linux-arm64.tar.xz
         sha256: b08b7a3deaf51c4c5a93c19dae448fd159a77081160d4777280ce4bdbf3245b6
         only-arches: [aarch64]
         x-checker-data:
-          type: html
-          url: https://github.com/nowsecure/r2frida/releases/latest
-          version-pattern: Frida\s*([\d\.]+)
-          url-template: https://github.com/frida/frida/releases/download/$version/frida-core-devkit-$version-linux-arm64.tar.xz
+          type: json
+          url: https://api.github.com/repos/nowsecure/r2frida/releases/latest
+          version-query: .body | capture("Frida +(?<frida_version>[0-9.]+)") | .frida_version
+          url-data-url: >-
+            "https://api.github.com/repos/frida/frida/releases/tags/\($version)"
+          url-query: |-
+            .assets[] | select(.name=="frida-core-devkit-" + $version + "-linux-arm64.tar.xz") | .browser_download_url
       - type: shell # decompress frida-sdk keeping its own version
         commands:
           - FRIDA_DEST=$(echo frida-core-devkit-*.tar.xz | sed -r 's,^.*-([0-9\.]+)-.*$,ext/frida-linux-\1,');
-            mkdir -vp "${FRIDA_DEST}" &&
-            tar -vxJf frida-core-devkit-*.tar.xz -C "${FRIDA_DEST}"
+            mkdir -vp "${FRIDA_DEST}" && tar -vxJf frida-core-devkit-*.tar.xz -C "${FRIDA_DEST}"
           - rm -vf frida-core-devkit-*.tar.xz
 
   - name: r2dec
