@@ -144,9 +144,9 @@ modules:
       cflags: -O3
     sources:
       - type: archive
-        url: https://github.com/wargio/r2dec-js/releases/download/5.9.0/r2dec-5.9.0-src-with-deps.zip
+        url: https://github.com/wargio/r2dec-js/releases/download/5.9.2/r2dec-5.9.2-src-with-deps.zip
         archive-type: zip
-        sha256: b07b26f4318f21ca64cd8c2609b1acea6b2310754e980012511c5c34a426d467
+        sha256: 10cf60d707ed8baf9f7bb1b0a0549f74719692d150f5d1836cfcdfff605a8184
         strip-components: 0
         x-checker-data:
           type: json
