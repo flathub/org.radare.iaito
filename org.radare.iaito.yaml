@@ -207,6 +207,11 @@ modules:
 
   - name: iaito
     buildsystem: qmake
+    config-opts:
+      - -config
+      - release
+    # - IAITO_ENABLE_PYTHON=false
+    # - IAITO_ENABLE_PYTHON_BINDINGS=false
     subdir: src
     sources:
       - type: git
