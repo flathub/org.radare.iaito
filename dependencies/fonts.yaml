@@ -1,0 +1,38 @@
+name: fonts
+modules:
+  - name: agave
+    buildsystem: simple
+    build-commands:
+      - install -D -m644 *.ttf -t /app/share/fonts
+    sources:
+      - type: file
+        url: https://github.com/blobject/agave/releases/download/v37/Agave-Regular.ttf
+        sha256: bd7d5584482acbdad0ee13e6020046c4ac88b36412018a990bf98bff60483ab0
+      - type: file
+        url: https://github.com/blobject/agave/releases/download/v37/Agave-Bold.ttf
+        sha256: 031fe5fd12b2734de56b0d138622da73fec71d5e3e63189b2b37199e366ce952
+
+  - name: anonymous-pro
+    buildsystem: simple
+    build-commands:
+      - install -D -m644 AnonymousPro-*/*.ttf -t /app/share/fonts
+      - install -D -m644 AnonymousProMinus-*/*.ttf -t /app/share/fonts
+    sources:
+      - type: archive
+        url: https://www.marksimonson.com/assets/content/fonts/AnonymousPro-1_002.zip
+        sha256: 6d165fd08fe2827f38656c26f644eb1f5d6a0f1cb067cb758c7f295a333eb112
+        strip-components: 0
+      - type: archive
+        url: https://www.marksimonson.com/assets/content/fonts/AnonymousProMinus-1_003.zip
+        sha256: e7dfa911f75a422d030f82809f821cd3ba6bc570d270d982ecb109c720b32626
+        strip-components: 0
+
+  - name: inconsolata
+    buildsystem: simple
+    build-commands:
+      - install -D -m644 *.otf -t /app/share/fonts
+    sources:
+      - type: archive
+        url: https://github.com/googlefonts/Inconsolata/releases/download/v3.000/fonts_otf.zip
+        sha256: a1d30ccd1ce9298fb8f172df3e73fb871e99ef0a7bdaba74a958736bd0de5bf1
+        strip-components: 2
