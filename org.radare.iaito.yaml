@@ -205,8 +205,6 @@ modules:
           type: pypi
           name: r2pipe
 
-  - dependencies/fonts.yaml
-
   - name: iaito
     buildsystem: qmake
     config-opts:
