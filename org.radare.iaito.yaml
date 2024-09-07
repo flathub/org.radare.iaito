@@ -193,6 +193,22 @@ modules:
             commands:
               - ./bootstrap.sh
 
+  - name: r2ai-decai
+    buildsystem: simple
+    build-commands:
+      - make -C decai install
+    sources:
+      - type: git
+        url: https://github.com/radareorg/r2ai.git
+        tag: 0.8.4
+        commit: 4f642d5eb03a0ff5c5be04b3474f8e22a73868c8
+        x-checker-data:
+          type: json
+          url: https://api.github.com/repos/radareorg/r2ai/releases/latest
+          timestamp-query: .published_at
+          version-query: .tag_name
+          tag-query: .tag_name
+
   - name: r2pipe-python
     buildsystem: simple
     build-commands:

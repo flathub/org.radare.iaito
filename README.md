@@ -89,4 +89,5 @@ List of project URLs of the modules included in this flatpak version of iaito wi
   - [r2frida](https://github.com/nowsecure/r2frida)
   - [r2dec](https://github.com/wargio/r2dec-js)
   - [r2yara](https://github.com/radareorg/r2yara)
+  - [r2ai](https://github.com/radareorg/r2ai) (only decai r2plugin)
   - [r2pipe](https://github.com/radareorg/radare2-r2pipe) (only python)
