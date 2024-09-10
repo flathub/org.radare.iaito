@@ -54,8 +54,9 @@ modules:
       - mv /app/share/radare2/*.*.*/www /app/share/iaito/webui/
       - ln -s ../../iaito/webui/www /app/share/radare2/*.*.*/
       - install -Dpm644 -t /app/share/iaito/webui/share/metainfo org.radare.iaito.webui.metainfo.xml
-      - appstream-compose --basename=org.radare.iaito.webui --prefix=/app/share/iaito/webui
-        --origin=flatpak org.radare.iaito.webui
+      - appstreamcli compose --no-net --prefix=/ --components=org.radare.iaito.webui
+        --origin=org.radare.iaito.webui --result-root=/app/share/iaito/webui --data-dir=/app/share/iaito/webui/share/app-info/xmls
+        /app/share/iaito/webui
     sources:
       - type: archive
         url: https://github.com/radareorg/radare2/releases/download/5.9.4/radare2-5.9.4.tar.xz
@@ -252,8 +253,9 @@ modules:
     build-commands:
       - make install PREFIX=/app
       - install -Dpm644 -t /app/share/iaito/translations/share/metainfo org.radare.iaito.translations.metainfo.xml
-      - appstream-compose --basename=org.radare.iaito.translations --prefix=/app/share/iaito/translations
-        --origin=flatpak org.radare.iaito.translations
+      - appstreamcli compose --no-net --prefix=/ --components=org.radare.iaito.translations
+        --origin=org.radare.iaito.translations --result-root=/app/share/iaito/translations
+        --data-dir=/app/share/iaito/translations/share/app-info/xmls /app/share/iaito/translations
     sources:
       - type: git
         url: https://github.com/radareorg/iaito-translations.git
