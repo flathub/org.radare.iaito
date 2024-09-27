@@ -145,8 +145,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/wargio/r2dec-js.git
-        tag: 5.9.2
-        commit: e07a3b1faaf45a7a711a61e281ae5b58a52b8f95
+        tag: 5.9.4
+        commit: 53760c664b7497d6e558ab7e6aa7040f748cd43d
         x-checker-data:
           type: json
           url: https://api.github.com/repos/wargio/r2dec-js/releases/latest
