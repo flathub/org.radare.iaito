@@ -59,9 +59,9 @@ modules:
         /app/share/iaito/webui
     sources:
       - type: archive
-        url: https://github.com/radareorg/radare2/releases/download/5.9.4/radare2-5.9.4.tar.xz
+        url: https://github.com/radareorg/radare2/releases/download/5.9.6/radare2-5.9.6.tar.xz
         archive-type: tar-xz
-        sha256: edf4fc9255482ef790a85e1e563ecce147c6dc6ef49572586b3bb7fa6f1331b3
+        sha256: 00fd262c8b23d0ce1b733b9dd9b0e7913062dcee0b5cf7c0d3682c041cc1a78d
         x-checker-data:
           type: json
           url: https://api.github.com/repos/radareorg/radare2/releases/latest
@@ -101,8 +101,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/nowsecure/r2frida.git
-        tag: 5.9.4
-        commit: 1b1a218bf419eda14710caf35273a65b4a3e7bf2
+        tag: 5.9.6
+        commit: a44a0d222acaf66208c8085040f740d276cd3888
         x-checker-data:
           type: json
           url: https://api.github.com/repos/nowsecure/r2frida/releases/latest
@@ -110,8 +110,8 @@ modules:
           version-query: .tag_name
           tag-query: .tag_name
       - type: file
-        url: https://github.com/frida/frida/releases/download/16.4.8/frida-core-devkit-16.4.8-linux-x86_64.tar.xz
-        sha256: 8f551e0d4447e6421d75f64ff1855402d47cf7d759b1407cc509f5b6e775998b
+        url: https://github.com/frida/frida/releases/download/16.5.5/frida-core-devkit-16.5.5-linux-x86_64.tar.xz
+        sha256: 2dfbe390d9cbadc40536e08b1bd9a7c32827690ea6cc1201329ffd82a79247ec
         only-arches: [x86_64]
         x-checker-data:
           type: json
@@ -122,8 +122,8 @@ modules:
           url-query: |-
             .assets[] | select(.name=="frida-core-devkit-" + $version + "-linux-x86_64.tar.xz") | .browser_download_url
       - type: file
-        url: https://github.com/frida/frida/releases/download/16.4.8/frida-core-devkit-16.4.8-linux-arm64.tar.xz
-        sha256: b21946300230d505dac20dd3fcec3e6a5221e2d71339b65eae1834d26b59d451
+        url: https://github.com/frida/frida/releases/download/16.5.5/frida-core-devkit-16.5.5-linux-arm64.tar.xz
+        sha256: 4bcde37e2c6726d0cb2822c6147126a5376c116d86d66799c5e8db24df8c245a
         only-arches: [aarch64]
         x-checker-data:
           type: json
@@ -238,8 +238,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/radareorg/iaito.git
-        tag: 5.9.4
-        commit: dc51d5fe1604596d0278bd7cc7d2c589a4ec1671
+        tag: 5.9.6
+        commit: 07f60a902fc9505cc619ffef6ebdc17935b76974
         x-checker-data:
           type: json
           url: https://api.github.com/repos/radareorg/iaito/releases/latest
