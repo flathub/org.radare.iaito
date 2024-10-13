@@ -59,9 +59,9 @@ modules:
         /app/share/iaito/webui
     sources:
       - type: archive
-        url: https://github.com/radareorg/radare2/releases/download/5.9.4/radare2-5.9.4.tar.xz
+        url: https://github.com/radareorg/radare2/releases/download/5.9.6/radare2-5.9.6.tar.xz
         archive-type: tar-xz
-        sha256: edf4fc9255482ef790a85e1e563ecce147c6dc6ef49572586b3bb7fa6f1331b3
+        sha256: 00fd262c8b23d0ce1b733b9dd9b0e7913062dcee0b5cf7c0d3682c041cc1a78d
         x-checker-data:
           type: json
           url: https://api.github.com/repos/radareorg/radare2/releases/latest
