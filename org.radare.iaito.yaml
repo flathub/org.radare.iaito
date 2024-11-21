@@ -238,8 +238,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/radareorg/iaito.git
-        tag: 5.9.8
-        commit: b9422fe192119fad30efac1e859615d305ea468e
+        tag: 5.9.9
+        commit: 465cf40df7642fe708ab41f66a5aeff127098cc6
         x-checker-data:
           type: json
           url: https://api.github.com/repos/radareorg/iaito/releases/latest
