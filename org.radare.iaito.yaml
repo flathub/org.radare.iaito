@@ -206,8 +206,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/radareorg/r2ai.git
-        tag: 0.8.8
-        commit: be575e6932c6ddfc16e09cdf2ef6d7596bbab82f
+        tag: 0.9.0
+        commit: f330f468885619cb13505a2c5566cf4b439c6a37
         x-checker-data:
           type: json
           url: https://api.github.com/repos/radareorg/r2ai/releases/latest
