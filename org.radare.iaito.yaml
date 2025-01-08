@@ -101,8 +101,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/nowsecure/r2frida.git
-        tag: 5.9.6
-        commit: a44a0d222acaf66208c8085040f740d276cd3888
+        tag: 5.9.8
+        commit: b365fe8b438a4586c5a7e2c67dd601f07ec8e8cc
         x-checker-data:
           type: json
           url: https://api.github.com/repos/nowsecure/r2frida/releases/latest
@@ -110,8 +110,8 @@ modules:
           version-query: .tag_name
           tag-query: .tag_name
       - type: file
-        url: https://github.com/frida/frida/releases/download/16.5.5/frida-core-devkit-16.5.5-linux-x86_64.tar.xz
-        sha256: 2dfbe390d9cbadc40536e08b1bd9a7c32827690ea6cc1201329ffd82a79247ec
+        url: https://github.com/frida/frida/releases/download/16.5.9/frida-core-devkit-16.5.9-linux-x86_64.tar.xz
+        sha256: f89480ac0d6b40550bac14db7011db817ea79547bb4a4c7094b2c0a59a0d60f9
         only-arches: [x86_64]
         x-checker-data:
           type: json
@@ -122,8 +122,8 @@ modules:
           url-query: |-
             .assets[] | select(.name=="frida-core-devkit-" + $version + "-linux-x86_64.tar.xz") | .browser_download_url
       - type: file
-        url: https://github.com/frida/frida/releases/download/16.5.5/frida-core-devkit-16.5.5-linux-arm64.tar.xz
-        sha256: 4bcde37e2c6726d0cb2822c6147126a5376c116d86d66799c5e8db24df8c245a
+        url: https://github.com/frida/frida/releases/download/16.5.9/frida-core-devkit-16.5.9-linux-arm64.tar.xz
+        sha256: 24c532c4e316aa347dd1d2b6ecb50af2b4eeeb6c4bd8b76830e9ed5b19b12976
         only-arches: [aarch64]
         x-checker-data:
           type: json
