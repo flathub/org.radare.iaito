@@ -259,11 +259,13 @@ modules:
     sources:
       - type: git
         url: https://github.com/radareorg/iaito-translations.git
+        tag: '20221114'
         commit: e66b3a962a7fc7dfd730764180011ecffbb206bf
         x-checker-data:
           type: json
-          url: https://api.github.com/repos/radareorg/iaito-translations/branches/master
-          commit-query: .commit.sha
-          timestamp-query: .commit.commit.committer.date
+          url: https://api.github.com/repos/radareorg/iaito-translations/releases/latest
+          timestamp-query: .published_at
+          version-query: .tag_name
+          tag-query: .tag_name
       - type: file
         path: extensions/org.radare.iaito.translations.metainfo.xml
