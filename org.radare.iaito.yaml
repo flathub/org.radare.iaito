@@ -78,9 +78,9 @@ modules:
       cflags: -O3
     sources:
       - type: archive
-        url: https://github.com/radareorg/r2ghidra/releases/download/5.9.4/r2ghidra-5.9.4.tar.xz
+        url: https://github.com/radareorg/r2ghidra/releases/download/5.9.6/r2ghidra-5.9.6.tar.xz
         archive-type: tar-xz
-        sha256: 0db58023a61dbd195e9a963b6648908e566c180f54e28184a267338da876b339
+        sha256: 206ce49ba8950f07e6353a99de906fbf453d74360443ade556df05aaffae6637
         x-checker-data:
           type: json
           url: https://api.github.com/repos/radareorg/r2ghidra/releases/latest
