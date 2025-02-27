@@ -146,8 +146,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/wargio/r2dec-js.git
-        tag: 5.9.4
-        commit: 53760c664b7497d6e558ab7e6aa7040f748cd43d
+        tag: 5.9.8-p1
+        commit: 4c4f6cca04a9dc6f8d8ee2f47a470029a064048e
         x-checker-data:
           type: json
           url: https://api.github.com/repos/wargio/r2dec-js/releases/latest
@@ -155,8 +155,9 @@ modules:
           version-query: .tag_name
           tag-query: .tag_name
       - type: git
-        url: https://github.com/frida/quickjs.git
-        commit: c81f05c9859cea5f83a80057416a0c7affe9b876
+        url: https://github.com/quickjs-ng/quickjs.git
+        tag: v0.8.0
+        commit: 482291286b9960c255ff8765d18a618cc87d89a2
         dest: subprojects/libquickjs
       - type: shell
         commands:
