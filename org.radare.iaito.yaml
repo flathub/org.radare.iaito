@@ -21,17 +21,7 @@ build-options:
   env:
     R2PM_OFFLINE: yes
 
-# Separate translations manually since currently flatpak
-#  don't split share/app/translations folder automatically
-separate-locales: false
 add-extensions:
-  org.radare.iaito.translations:
-    directory: share/iaito/translations
-    bundle: true
-    autodelete: true
-    no-autodownload: false
-    locale-subset: false
-
 # WebUI optional extension
   org.radare.iaito.webui:
     directory: share/iaito/webui
@@ -247,10 +237,6 @@ modules:
     buildsystem: simple
     build-commands:
       - make install PREFIX=/app
-      - install -Dpm644 -t /app/share/iaito/translations/share/metainfo org.radare.iaito.translations.metainfo.xml
-      - appstreamcli compose --no-net --prefix=/ --components=org.radare.iaito.translations
-        --origin=org.radare.iaito.translations --result-root=/app/share/iaito/translations
-        --data-dir=/app/share/iaito/translations/share/app-info/xmls /app/share/iaito/translations
     sources:
       - type: git
         url: https://github.com/radareorg/iaito-translations.git
@@ -262,5 +248,3 @@ modules:
           timestamp-query: .published_at
           version-query: .tag_name
           tag-query: .tag_name
-      - type: file
-        path: extensions/org.radare.iaito.translations.metainfo.xml
