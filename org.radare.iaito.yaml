@@ -144,24 +144,18 @@ modules:
     build-options:
       cflags: -O3
     sources:
-      - type: git
-        url: https://github.com/wargio/r2dec-js.git
-        tag: 5.9.8-p1
-        commit: 4c4f6cca04a9dc6f8d8ee2f47a470029a064048e
+      - type: archive
+        url: https://github.com/wargio/r2dec-js/releases/download/5.9.8-p1/r2dec-5.9.8-src-with-deps.zip
+        archive-type: zip
+        sha256: 6b0da49f4ab9866ca956a893dcf3cd7c5e95f46e80648c947a45d4db93760996
+        strip-components: 0
         x-checker-data:
           type: json
           url: https://api.github.com/repos/wargio/r2dec-js/releases/latest
           timestamp-query: .published_at
           version-query: .tag_name
-          tag-query: .tag_name
-      - type: git
-        url: https://github.com/quickjs-ng/quickjs.git
-        tag: v0.8.0
-        commit: 482291286b9960c255ff8765d18a618cc87d89a2
-        dest: subprojects/libquickjs
-      - type: shell
-        commands:
-          - meson subprojects packagefiles --apply
+          url-query: |-
+            .assets[] | select(.name | endswith("-src-with-deps.zip")) | .browser_download_url
 
   - name: r2yara
     buildsystem: autotools
