@@ -184,9 +184,11 @@ modules:
             commands:
               - ./bootstrap.sh
 
-  - name: r2ai-decai
+  - name: r2ai
     buildsystem: simple
     build-commands:
+      - make -C src
+      - make -C src install
       - make -C decai install
     sources:
       - type: git
