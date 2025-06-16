@@ -208,8 +208,8 @@ modules:
       - pip3 install --prefix=/app --no-deps .
     sources:
       - type: archive
-        url: https://files.pythonhosted.org/packages/9b/4d/8679a1ddcf5cb6c94f7005d9a889d4855a3980d1e689fe73204f34fa91fc/r2pipe-1.9.4.tar.gz
-        sha256: 021de46fe1e4d6932543c0f548c3c02126cbda7e930c6d0887d7b3996ee82119
+        url: https://files.pythonhosted.org/packages/53/1c/674d70acdc1a03099db8728f8e5154b2a6c686e1e7a261dd66221777768b/r2pipe-1.9.6.tar.gz
+        sha256: 3804b762bd4298c32e8443ffb513bd6007586777a689bd21b97977feb8cb2c99
         x-checker-data:
           type: pypi
           name: r2pipe
