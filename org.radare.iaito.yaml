@@ -3,6 +3,8 @@ app-id: org.radare.iaito
 runtime: org.kde.Platform
 runtime-version: 6.8
 sdk: org.kde.Sdk
+sdk-extensions:
+  - org.freedesktop.Sdk.Extension.node24
 
 command: iaito
 finish-args:
@@ -18,6 +20,7 @@ cleanup:
   - /share/zsh
 
 build-options:
+  append-path: /usr/lib/sdk/node24/bin
   env:
     R2PM_OFFLINE: yes
 
@@ -130,29 +133,29 @@ modules:
           version-query: .tag_name
           tag-query: .tag_name
       - type: file
-        url: https://github.com/frida/frida/releases/download/17.2.11/frida-core-devkit-17.2.11-linux-x86_64.tar.xz
-        sha256: 53252cef46e349b3fd2f575756547fddbbd1b9ecf3636b2ce665d2288613309f
+        url: https://github.com/frida/frida/releases/download/17.2.14/frida-core-devkit-17.2.14-linux-x86_64.tar.xz
+        sha256: 4c55e5a22fb8c38b48ed059d74dc6617916c3415fae60ca06bfe558740bfbc9b
         only-arches: [x86_64]
-        x-checker-data:
-          type: json
-          url: https://api.github.com/repos/nowsecure/r2frida/releases/latest
-          version-query: .body | capture("Frida +(?<frida_version>[0-9.]+)") | .frida_version
-          url-data-url: >-
-            "https://api.github.com/repos/frida/frida/releases/tags/\($version)"
-          url-query: |-
-            .assets[] | select(.name=="frida-core-devkit-" + $version + "-linux-x86_64.tar.xz") | .browser_download_url
+        # x-checker-data:
+        #   type: json
+        #   url: https://api.github.com/repos/nowsecure/r2frida/releases/latest
+        #   version-query: .body | capture("Frida +(?<frida_version>[0-9.]+)") | .frida_version
+        #   url-data-url: >-
+        #     "https://api.github.com/repos/frida/frida/releases/tags/\($version)"
+        #   url-query: |-
+        #     .assets[] | select(.name=="frida-core-devkit-" + $version + "-linux-x86_64.tar.xz") | .browser_download_url
       - type: file
-        url: https://github.com/frida/frida/releases/download/17.2.11/frida-core-devkit-17.2.11-linux-arm64.tar.xz
-        sha256: 29d60c517d81ac4e06cb1412389b48c675d8154ef72ded57147235d7f3bce59b
+        url: https://github.com/frida/frida/releases/download/17.2.14/frida-core-devkit-17.2.14-linux-arm64.tar.xz
+        sha256: 0e06373c3ae47fbc9e0c2eba7e03ee6a9a04c20feeb4827ad26a490c5c0a822d
         only-arches: [aarch64]
-        x-checker-data:
-          type: json
-          url: https://api.github.com/repos/nowsecure/r2frida/releases/latest
-          version-query: .body | capture("Frida +(?<frida_version>[0-9.]+)") | .frida_version
-          url-data-url: >-
-            "https://api.github.com/repos/frida/frida/releases/tags/\($version)"
-          url-query: |-
-            .assets[] | select(.name=="frida-core-devkit-" + $version + "-linux-arm64.tar.xz") | .browser_download_url
+        # x-checker-data:
+        #   type: json
+        #   url: https://api.github.com/repos/nowsecure/r2frida/releases/latest
+        #   version-query: .body | capture("Frida +(?<frida_version>[0-9.]+)") | .frida_version
+        #   url-data-url: >-
+        #     "https://api.github.com/repos/frida/frida/releases/tags/\($version)"
+        #   url-query: |-
+        #     .assets[] | select(.name=="frida-core-devkit-" + $version + "-linux-arm64.tar.xz") | .browser_download_url
       - type: shell # decompress frida-sdk keeping its own version
         commands:
           - FRIDA_DEST=$(echo frida-core-devkit-*.tar.xz | sed -r 's,^.*-([0-9\.]+)-.*$,ext/frida-linux-\1,');
