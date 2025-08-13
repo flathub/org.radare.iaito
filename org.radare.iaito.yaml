@@ -61,6 +61,25 @@ modules:
             .assets[] | select(.name=="radare2-" + $version + ".tar.xz") | .browser_download_url
       - type: file
         path: extensions/org.radare.iaito.webui.metainfo.xml
+      # Temporal workaround for subprojects folder without internet
+      - type: git
+        url: https://github.com/radareorg/sdb.git
+        tag: 2.2.0
+        commit: a40343ded21d4978b665aa14c913d0b87feb734f
+        dest: subprojects/sdb
+      - type: git
+        url: https://github.com/quickjs-ng/quickjs.git
+        commit: 7238ee64dbc2fbdea044555cda8cda78785a93ed
+        dest: subprojects/qjs
+      - type: git
+        url: https://github.com/capstone-engine/capstone.git
+        commit: accf4df62f1fba6f92cae692985d27063552601c
+        dest: subprojects/capstone-v5
+      - type: shell # from subprojects/*.mk
+        commands:
+          - cp -rf subprojects/packagefiles/qjs/* subprojects/qjs
+          - cp -rf subprojects/packagefiles/capstone-v5/* subprojects/capstone-v5
+          - patch -d subprojects/capstone-v5 -p1 -i capstone-patches/fix-x86-16.patch
 
   - name: r2ghidra
     buildsystem: autotools
@@ -78,9 +97,20 @@ modules:
           version-query: .tag_name
           url-query: |-
             .assets[] | select(.name=="r2ghidra-" + $version + ".tar.xz") | .browser_download_url
-      - type: shell # preconfigure
+      # Temporal workaround for subprojects folder without internet
+      - type: git
+        url: https://github.com/radareorg/ghidra-native.git
+        commit: d2242691bf45a12e3ea483a4789f825af4651506
+        dest: subprojects/ghidra-native
+      - type: git
+        url: https://github.com/madler/zlib.git
+        commit: 51b7f2abdade71cd9bb0e7a373ef2610ec6f9daf
+        dest: subprojects/zlib
+      - type: shell # from subprojects/*.mk
         commands:
-          - make -C ghidra-native patch
+          - cp -rf subprojects/packagefiles/ghidra-native/* subprojects/ghidra-native
+          - for a in 0001-space-after-comma 0002-make-sleigharch-public 0004-public-fields 0006-readonly-warning 0010-null-subflow 0020-Fix-double-free-crash-when-deinitializing-multiple-X 0023-Undef-LoadImage-for-windows 0024-ignore-symbol-beyond-space 0044-bad-unicode-codepoint 0055-datatype-clone 0056-nullderef-workaround 0080-getparent-flow 0090-nocasts-warnings 0091-decompiler-xml-packer 0092-badvar-segfault 0093-no-virtual-destructor; do patch -d subprojects/ghidra-native -p1 -i patches/${a}.patch || true; done
+          - cp -rf subprojects/packagefiles/zlib/* subprojects/zlib
 
   - name: r2frida
     buildsystem: autotools
