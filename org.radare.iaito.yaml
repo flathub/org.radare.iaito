@@ -78,16 +78,16 @@ modules:
           version-query: .tag_name
           url-query: |-
             .assets[] | select(.name=="r2ghidra-" + $version + ".tar.xz") | .browser_download_url
-      - type: shell # preconfigure
-        commands:
-          - make -C ghidra-native patch
 
   - name: r2frida
     buildsystem: autotools
     build-options:
       cflags: -O3
     config-opts:
+      - --with-precompiled-agent
       - --with-checks-level=0
+    make-args:
+      - DLCMD=false
     sources:
       - type: git
         url: https://github.com/nowsecure/r2frida.git
@@ -100,25 +100,39 @@ modules:
           version-query: .tag_name
           tag-query: .tag_name
       - type: file
-        url: https://github.com/frida/frida/releases/download/17.3.1/frida-core-devkit-17.3.1-linux-x86_64.tar.xz
-        sha256: dcdc87924f2db19bc3e11a35c7319541008b71dba5174d2eff506c1a47be8c6e
+        url: https://github.com/nowsecure/r2frida/releases/download/6.0.4/_agent.js
+        sha256: cde541e6c921c15db8fed9fc87bc1b37d0752c5e23950da3debfface6b5d0f37
+        dest: src
+        dest-filename: _agent.js
+        x-checker-data:
+          type: json
+          url: https://api.github.com/repos/nowsecure/r2frida/releases/latest
+          timestamp-query: .published_at
+          version-query: .tag_name
+          url-query: |-
+            .assets[] | select(.name=="_agent.js") | .browser_download_url
+      - type: file
+        url: https://github.com/frida/frida/releases/download/17.3.2/frida-core-devkit-17.3.2-linux-x86_64.tar.xz
+        sha256: 58ff4899c0761f985bafbcf54e50dbb0e34bca551f5f4c87c0c4116904cfe138
         only-arches: [x86_64]
         x-checker-data:
           type: json
           url: https://api.github.com/repos/nowsecure/r2frida/releases/latest
-          version-query: .body | capture("Frida +(?<frida_version>[0-9.]+)") | .frida_version
+          version-query: .body | capture("[Ff]rida +(?<frida_version>[0-9.]+)") |
+            .frida_version
           url-data-url: >-
             "https://api.github.com/repos/frida/frida/releases/tags/\($version)"
           url-query: |-
             .assets[] | select(.name=="frida-core-devkit-" + $version + "-linux-x86_64.tar.xz") | .browser_download_url
       - type: file
-        url: https://github.com/frida/frida/releases/download/17.3.1/frida-core-devkit-17.3.1-linux-arm64.tar.xz
-        sha256: 67863ebc02d14732711cb92b21f01ab7b1a998ce0daa4331ecf2200bf42a8e7f
+        url: https://github.com/frida/frida/releases/download/17.3.2/frida-core-devkit-17.3.2-linux-arm64.tar.xz
+        sha256: 59dd68a7368277c947e06801fca9d670dbe9164b1fcaa51de26e022b13b36e62
         only-arches: [aarch64]
         x-checker-data:
           type: json
           url: https://api.github.com/repos/nowsecure/r2frida/releases/latest
-          version-query: .body | capture("Frida +(?<frida_version>[0-9.]+)") | .frida_version
+          version-query: .body | capture("[Ff]rida +(?<frida_version>[0-9.]+)") |
+            .frida_version
           url-data-url: >-
             "https://api.github.com/repos/frida/frida/releases/tags/\($version)"
           url-query: |-
