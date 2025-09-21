@@ -78,16 +78,16 @@ modules:
           version-query: .tag_name
           url-query: |-
             .assets[] | select(.name=="r2ghidra-" + $version + ".tar.xz") | .browser_download_url
-      - type: shell # preconfigure
-        commands:
-          - make -C ghidra-native patch
 
   - name: r2frida
     buildsystem: autotools
     build-options:
       cflags: -O3
     config-opts:
+      - --with-precompiled-agent
       - --with-checks-level=0
+    make-args:
+      - DLCMD=false
     sources:
       - type: git
         url: https://github.com/nowsecure/r2frida.git
@@ -99,6 +99,18 @@ modules:
           timestamp-query: .published_at
           version-query: .tag_name
           tag-query: .tag_name
+      - type: file
+        url: https://github.com/nowsecure/r2frida/releases/download/6.0.2/_agent.js
+        sha256: 998234270298102dc5d3a4ef07a1888c36616d5a3bf5bfc598b9c563e34d4274
+        dest: src
+        dest-filename: _agent.js
+        x-checker-data:
+          type: json
+          url: https://api.github.com/repos/nowsecure/r2frida/releases/latest
+          timestamp-query: .published_at
+          version-query: .tag_name
+          url-query: |-
+            .assets[] | select(.name=="_agent.js") | .browser_download_url
       - type: file
         url: https://github.com/frida/frida/releases/download/17.2.15/frida-core-devkit-17.2.15-linux-x86_64.tar.xz
         sha256: 068cec1b56debb77cfdfe0c4e916b98382b2a03f7b4f4cf66f2ed3e3da0f776f
