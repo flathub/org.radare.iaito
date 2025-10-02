@@ -239,8 +239,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/radareorg/iaito.git
-        tag: 6.0.2
-        commit: f2cf3ed7ed96cbe8068e4474886a31f3cd9156f2
+        tag: 6.0.4
+        commit: c89a4afd9ff8cd0628f49d7ba3b5f444f6631374
         x-checker-data:
           type: json
           url: https://api.github.com/repos/radareorg/iaito/releases/latest
