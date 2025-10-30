@@ -68,9 +68,9 @@ modules:
       cflags: -O3
     sources:
       - type: archive
-        url: https://github.com/radareorg/r2ghidra/releases/download/6.0.2/r2ghidra-6.0.2.tar.xz
+        url: https://github.com/radareorg/r2ghidra/releases/download/6.0.4/r2ghidra-6.0.4.tar.xz
         archive-type: tar-xz
-        sha256: 81fb3e023c77fce19150f4cf6fc4765c8b0e19999fc291075e71bbb3778f9b34
+        sha256: baca38e617c4ae55605964eb1b9e86ae5d1f010241de46a8af8e553bfbb14a87
         x-checker-data:
           type: json
           url: https://api.github.com/repos/radareorg/r2ghidra/releases/latest
@@ -186,8 +186,8 @@ modules:
         sources:
           - type: git
             url: https://github.com/VirusTotal/yara.git
-            tag: v4.5.4
-            commit: 7ff39042be5c63682a037e13a75221d59393cf8b
+            tag: v4.5.5
+            commit: f44a8958e88daa75d765a52a68876f2286d57a51
             x-checker-data:
               type: json
               url: https://api.github.com/repos/VirusTotal/yara/releases/latest
