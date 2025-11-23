@@ -49,9 +49,9 @@ modules:
         /app/share/iaito/webui
     sources:
       - type: archive
-        url: https://github.com/radareorg/radare2/releases/download/6.0.4/radare2-6.0.4.tar.xz
+        url: https://github.com/radareorg/radare2/releases/download/6.0.7/radare2-6.0.7.tar.xz
         archive-type: tar-xz
-        sha256: d5d92e3a2dbe050be1ce0ec2a2cd2e408b068ae69d6a6485b57a5df88fa63ba3
+        sha256: 099af2b2ad97295c81f7ee6ed3ea8da961b5c66a08e1d2701722912f50d791cc
         x-checker-data:
           type: json
           url: https://api.github.com/repos/radareorg/radare2/releases/latest
@@ -68,9 +68,9 @@ modules:
       cflags: -O3
     sources:
       - type: archive
-        url: https://github.com/radareorg/r2ghidra/releases/download/6.0.4/r2ghidra-6.0.4.tar.xz
+        url: https://github.com/radareorg/r2ghidra/releases/download/6.0.7/r2ghidra-6.0.7.tar.xz
         archive-type: tar-xz
-        sha256: baca38e617c4ae55605964eb1b9e86ae5d1f010241de46a8af8e553bfbb14a87
+        sha256: 8c6759860c785da08b00b3a6abd17df61aaecc17ba30024140ea7db975b6883d
         x-checker-data:
           type: json
           url: https://api.github.com/repos/radareorg/r2ghidra/releases/latest
