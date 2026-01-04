@@ -49,9 +49,9 @@ modules:
         /app/share/iaito/webui
     sources:
       - type: archive
-        url: https://github.com/radareorg/radare2/releases/download/6.0.4/radare2-6.0.4.tar.xz
+        url: https://github.com/radareorg/radare2/releases/download/6.0.8/radare2-6.0.8.tar.xz
         archive-type: tar-xz
-        sha256: d5d92e3a2dbe050be1ce0ec2a2cd2e408b068ae69d6a6485b57a5df88fa63ba3
+        sha256: f4cd10c80706e48309c8310ecf82dbb43128c1ccd236481904977845fec931d6
         x-checker-data:
           type: json
           url: https://api.github.com/repos/radareorg/radare2/releases/latest
@@ -68,9 +68,9 @@ modules:
       cflags: -O3
     sources:
       - type: archive
-        url: https://github.com/radareorg/r2ghidra/releases/download/6.0.4/r2ghidra-6.0.4.tar.xz
+        url: https://github.com/radareorg/r2ghidra/releases/download/6.0.7/r2ghidra-6.0.7.tar.xz
         archive-type: tar-xz
-        sha256: baca38e617c4ae55605964eb1b9e86ae5d1f010241de46a8af8e553bfbb14a87
+        sha256: 248059fb38e5f71ec522981e4b30887548792c20c21c34ace052f48927211017
         x-checker-data:
           type: json
           url: https://api.github.com/repos/radareorg/r2ghidra/releases/latest
@@ -91,8 +91,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/nowsecure/r2frida.git
-        tag: 6.0.4
-        commit: d76a3d94ff4af684ec67a7475ff735e2158ffde3
+        tag: 6.0.6
+        commit: 91ad7699acc107d3a03422c02e598684b33cdf8e
         x-checker-data:
           type: json
           url: https://api.github.com/repos/nowsecure/r2frida/releases/latest
@@ -100,8 +100,8 @@ modules:
           version-query: .tag_name
           tag-query: .tag_name
       - type: file
-        url: https://github.com/nowsecure/r2frida/releases/download/6.0.4/_agent.js
-        sha256: cde541e6c921c15db8fed9fc87bc1b37d0752c5e23950da3debfface6b5d0f37
+        url: https://github.com/nowsecure/r2frida/releases/download/6.0.6/_agent.js
+        sha256: ed210dfd09899ca32ebff59d505f32a56a17d3b3fa2649a926c830e69b55b0fb
         dest: src
         dest-filename: _agent.js
         x-checker-data:
@@ -112,8 +112,8 @@ modules:
           url-query: |-
             .assets[] | select(.name=="_agent.js") | .browser_download_url
       - type: file
-        url: https://github.com/frida/frida/releases/download/17.3.2/frida-core-devkit-17.3.2-linux-x86_64.tar.xz
-        sha256: 58ff4899c0761f985bafbcf54e50dbb0e34bca551f5f4c87c0c4116904cfe138
+        url: https://github.com/frida/frida/releases/download/17.5.1/frida-core-devkit-17.5.1-linux-x86_64.tar.xz
+        sha256: ddf4dac9b8082f8025db7ef52869324f86b993df58560ae5a34a2744a139f432
         only-arches: [x86_64]
         x-checker-data:
           type: json
@@ -125,8 +125,8 @@ modules:
           url-query: |-
             .assets[] | select(.name=="frida-core-devkit-" + $version + "-linux-x86_64.tar.xz") | .browser_download_url
       - type: file
-        url: https://github.com/frida/frida/releases/download/17.3.2/frida-core-devkit-17.3.2-linux-arm64.tar.xz
-        sha256: 59dd68a7368277c947e06801fca9d670dbe9164b1fcaa51de26e022b13b36e62
+        url: https://github.com/frida/frida/releases/download/17.5.1/frida-core-devkit-17.5.1-linux-arm64.tar.xz
+        sha256: 9a50d3816340cd37b2882e30321abf24022ec98cbd4b20460f86d3c51e16f88b
         only-arches: [aarch64]
         x-checker-data:
           type: json
@@ -149,9 +149,9 @@ modules:
       cflags: -O3
     sources:
       - type: archive
-        url: https://github.com/wargio/r2dec-js/releases/download/6.0.0/r2dec-6.0.0-src-with-deps.zip
+        url: https://github.com/wargio/r2dec-js/releases/download/6.0.7/r2dec-6.0.7-src-with-deps.zip
         archive-type: zip
-        sha256: ab1151abb8d1bc6c99c9d8d5c1762167712149cbc844a233e49711c619516bde
+        sha256: 198f01c778832b969566d9604d98cce2cb38f1dba6a8a473a3991db8f6c7a65a
         strip-components: 0
         x-checker-data:
           type: json
@@ -240,7 +240,7 @@ modules:
       - type: git
         url: https://github.com/radareorg/iaito.git
         tag: 6.0.4
-        commit: c89a4afd9ff8cd0628f49d7ba3b5f444f6631374
+        commit: 6b4d9663be4df5a03be1bed552c70788de7aaf3a
         x-checker-data:
           type: json
           url: https://api.github.com/repos/radareorg/iaito/releases/latest
