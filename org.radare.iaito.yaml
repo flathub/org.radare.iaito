@@ -219,7 +219,7 @@ modules:
   - name: r2pipe-python
     buildsystem: simple
     build-commands:
-      - pip3 install --prefix=/app --no-deps .
+      - pip3 install --prefix=/app --no-deps --no-build-isolation .
     sources:
       - type: archive
         url: https://files.pythonhosted.org/packages/53/1c/674d70acdc1a03099db8728f8e5154b2a6c686e1e7a261dd66221777768b/r2pipe-1.9.6.tar.gz
