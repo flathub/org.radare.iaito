@@ -71,13 +71,15 @@ modules:
         url: https://github.com/radareorg/r2ghidra/releases/download/6.1.0/r2ghidra-6.1.0.tar.xz
         archive-type: tar-xz
         sha256: 6dcf276e316c3851d237d63a823373759cffc83598c19a399b676e8361a682a8
-        x-checker-data:
-          type: json
-          url: https://api.github.com/repos/radareorg/r2ghidra/releases/latest
-          timestamp-query: .published_at
-          version-query: .tag_name
-          url-query: |-
-            .assets[] | select(.name=="r2ghidra-" + $version + ".tar.xz") | .browser_download_url
+        # x-checker-data:
+        #   type: json
+        #   url: https://api.github.com/repos/radareorg/r2ghidra/releases/latest
+        #   timestamp-query: .published_at
+        #   version-query: .tag_name
+        #   url-query: |-
+        #     .assets[] | select(.name=="r2ghidra-" + $version + ".tar.xz") | .browser_download_url
+      - type: patch
+        path: patches/r2ghidra-zlib-offline-build.patch
 
   - name: r2frida
     buildsystem: autotools
