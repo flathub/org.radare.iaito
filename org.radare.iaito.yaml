@@ -82,7 +82,7 @@ modules:
   - name: r2frida
     buildsystem: autotools
     build-options:
-      cflags: -O3
+      cflags: -O3 -w
     config-opts:
       - --with-precompiled-agent
       - --with-checks-level=0
