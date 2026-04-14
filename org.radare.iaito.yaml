@@ -233,6 +233,7 @@ modules:
     config-opts:
       - -config
       - release
+      - IAITO_ENABLE_DEBUGGER=false
     subdir: src
     sources:
       - type: git
