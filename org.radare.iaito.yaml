@@ -192,8 +192,8 @@ modules:
         sources:
           - type: git
             url: https://github.com/VirusTotal/yara.git
-            tag: v4.5.5
-            commit: f44a8958e88daa75d765a52a68876f2286d57a51
+            tag: v4.5.8
+            commit: 84b0e3cc0e42f8f8e6b84d19c97ec3ac6ff8aee8
             x-checker-data:
               type: json
               url: https://api.github.com/repos/VirusTotal/yara/releases/latest
