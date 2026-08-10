@@ -49,9 +49,9 @@ modules:
         /app/share/iaito/webui
     sources:
       - type: archive
-        url: https://github.com/radareorg/radare2/releases/download/6.1.8/radare2-6.1.8.tar.xz
+        url: https://github.com/radareorg/radare2/releases/download/6.2.0/radare2-6.2.0.tar.xz
         archive-type: tar-xz
-        sha256: 5b5ca179846c571a171a117d0a70e67cf114eecc66370fd030656b4f5bc1919b
+        sha256: 098488a3a0a4c11b893ae9e74496cf65561d17cefd9b7f2661a48b4be97b663a
         x-checker-data:
           type: json
           url: https://api.github.com/repos/radareorg/radare2/releases/latest
@@ -68,9 +68,9 @@ modules:
       cflags: -O3
     sources:
       - type: archive
-        url: https://github.com/radareorg/r2ghidra/releases/download/6.1.8/r2ghidra-6.1.8.tar.xz
+        url: https://github.com/radareorg/r2ghidra/releases/download/6.2.0/r2ghidra-6.2.0.tar.xz
         archive-type: tar-xz
-        sha256: 51294a6cee8343e36af88cc7d087fcada239280ee1301acd25971ac836c3ae0d
+        sha256: 740e6013e244c0abd4a146595fd95a40d4a3201bd46d50e73c218b01f3018d10
         x-checker-data:
           type: json
           url: https://api.github.com/repos/radareorg/r2ghidra/releases/latest
@@ -91,8 +91,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/nowsecure/r2frida.git
-        tag: 6.1.8
-        commit: 66530e8f1258586cffc6bd8632f05ba593572483
+        tag: 6.2.0
+        commit: 4e8539e14cb26bffd945d3b6f9e739e3fc3a394e
         x-checker-data:
           type: json
           url: https://api.github.com/repos/nowsecure/r2frida/releases/latest
@@ -100,8 +100,8 @@ modules:
           version-query: .tag_name
           tag-query: .tag_name
       - type: file
-        url: https://github.com/nowsecure/r2frida/releases/download/6.1.8/_agent.js
-        sha256: e32fe0cf27018db1dc127f8c965deae95fb820fa575e59506cb9c7fff5e40e31
+        url: https://github.com/nowsecure/r2frida/releases/download/6.2.0/_agent.js
+        sha256: 357d340c0af1d89b70d21afd75ad71da2a7ab71a402792cb49744bc497fd2fe0
         dest: src
         dest-filename: _agent.js
         x-checker-data:
@@ -244,8 +244,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/radareorg/iaito.git
-        tag: 6.1.8
-        commit: fb1b22c35f0b4aabd409becd2d5502179e5b85e4
+        tag: 6.2.0
+        commit: 61f47fca35a68f76f849be1ef5092e938f831a5b
         x-checker-data:
           type: json
           url: https://api.github.com/repos/radareorg/iaito/releases/latest
