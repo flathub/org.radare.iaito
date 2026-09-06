@@ -49,9 +49,9 @@ modules:
         /app/share/iaito/webui
     sources:
       - type: archive
-        url: https://github.com/radareorg/radare2/releases/download/6.2.0/radare2-6.2.0.tar.xz
+        url: https://github.com/radareorg/radare2/releases/download/6.2.2/radare2-6.2.2.tar.xz
         archive-type: tar-xz
-        sha256: 098488a3a0a4c11b893ae9e74496cf65561d17cefd9b7f2661a48b4be97b663a
+        sha256: c7ecacd3eba9e986f6346d3024a0974a43bde757588b1876fc5e858079da95f7
         x-checker-data:
           type: json
           url: https://api.github.com/repos/radareorg/radare2/releases/latest
@@ -91,8 +91,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/nowsecure/r2frida.git
-        tag: 6.2.0
-        commit: 4e8539e14cb26bffd945d3b6f9e739e3fc3a394e
+        tag: 6.2.2
+        commit: 4519ca028afe58a34547d469d972106162dc2c8d
         x-checker-data:
           type: json
           url: https://api.github.com/repos/nowsecure/r2frida/releases/latest
@@ -100,8 +100,8 @@ modules:
           version-query: .tag_name
           tag-query: .tag_name
       - type: file
-        url: https://github.com/nowsecure/r2frida/releases/download/6.2.0/_agent.js
-        sha256: 357d340c0af1d89b70d21afd75ad71da2a7ab71a402792cb49744bc497fd2fe0
+        url: https://github.com/nowsecure/r2frida/releases/download/6.2.2/_agent.js
+        sha256: ef9e560ebdd93a1405210806eeefccfd4fa7ae659b2dcd9319decfa7846bc9f7
         dest: src
         dest-filename: _agent.js
         x-checker-data:
@@ -112,8 +112,8 @@ modules:
           url-query: |-
             .assets[] | select(.name=="_agent.js") | .browser_download_url
       - type: file
-        url: https://github.com/frida/frida/releases/download/17.15.1/frida-core-devkit-17.15.1-linux-x86_64.tar.xz
-        sha256: 155414ab807ec42427460adeef1460b95fc009e517493dfafc86d999a9d7ba15
+        url: https://github.com/frida/frida/releases/download/17.17.0/frida-core-devkit-17.17.0-linux-x86_64.tar.xz
+        sha256: 483e1a25945cebaa69e61c09d7804692c42d234cab0c58261a73382163027a2e
         only-arches: [x86_64]
         x-checker-data:
           type: json
@@ -125,8 +125,8 @@ modules:
           url-query: |-
             .assets[] | select(.name=="frida-core-devkit-" + $version + "-linux-x86_64.tar.xz") | .browser_download_url
       - type: file
-        url: https://github.com/frida/frida/releases/download/17.15.1/frida-core-devkit-17.15.1-linux-arm64.tar.xz
-        sha256: 8ddebc85b34e9023844153665a21c8792be7ab4abfa858d7c992d1e233f5751d
+        url: https://github.com/frida/frida/releases/download/17.17.0/frida-core-devkit-17.17.0-linux-arm64.tar.xz
+        sha256: 93ace484ed610961ba153b176c6363a5ac598a1db3b245ef785175a8229568b0
         only-arches: [aarch64]
         x-checker-data:
           type: json
