@@ -91,8 +91,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/nowsecure/r2frida.git
-        tag: 6.2.2
-        commit: 4519ca028afe58a34547d469d972106162dc2c8d
+        tag: 6.2.4
+        commit: 4f1f8d7b1096ed0ca29778688d0f164461d56f05
         x-checker-data:
           type: json
           url: https://api.github.com/repos/nowsecure/r2frida/releases/latest
@@ -100,8 +100,8 @@ modules:
           version-query: .tag_name
           tag-query: .tag_name
       - type: file
-        url: https://github.com/nowsecure/r2frida/releases/download/6.2.2/_agent.js
-        sha256: ef9e560ebdd93a1405210806eeefccfd4fa7ae659b2dcd9319decfa7846bc9f7
+        url: https://github.com/nowsecure/r2frida/releases/download/6.2.4/_agent.js
+        sha256: 02f51bacee76fe7e350aaba79c3593b2e3ed7418fd293625ba2bd33872d1a259
         dest: src
         dest-filename: _agent.js
         x-checker-data:
@@ -112,8 +112,8 @@ modules:
           url-query: |-
             .assets[] | select(.name=="_agent.js") | .browser_download_url
       - type: file
-        url: https://github.com/frida/frida/releases/download/17.17.0/frida-core-devkit-17.17.0-linux-x86_64.tar.xz
-        sha256: 483e1a25945cebaa69e61c09d7804692c42d234cab0c58261a73382163027a2e
+        url: https://github.com/frida/frida/releases/download/17.23.1/frida-core-devkit-17.23.1-linux-x86_64.tar.xz
+        sha256: cce8e680d4f3bc013531a8dfbae35c7e189b8fe12d484289b9c37ef2c49f163e
         only-arches: [x86_64]
         x-checker-data:
           type: json
@@ -125,8 +125,8 @@ modules:
           url-query: |-
             .assets[] | select(.name=="frida-core-devkit-" + $version + "-linux-x86_64.tar.xz") | .browser_download_url
       - type: file
-        url: https://github.com/frida/frida/releases/download/17.17.0/frida-core-devkit-17.17.0-linux-arm64.tar.xz
-        sha256: 93ace484ed610961ba153b176c6363a5ac598a1db3b245ef785175a8229568b0
+        url: https://github.com/frida/frida/releases/download/17.23.1/frida-core-devkit-17.23.1-linux-arm64.tar.xz
+        sha256: 3fbf7170719dd0d1d9616fa4c76ce76474e0a470fa353b20a3ada32559e91542
         only-arches: [aarch64]
         x-checker-data:
           type: json
